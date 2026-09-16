@@ -1,0 +1,8 @@
+{
+  "name": "Magical Keys Raghu",
+  "description": "Modern, premium music education academy and digital music store for piano, guitar, and song-based mastery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

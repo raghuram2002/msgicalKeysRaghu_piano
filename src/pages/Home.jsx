@@ -136,7 +136,7 @@ export const Home = () => {
             <div className="lg:col-span-6 z-20 flex flex-col justify-center text-left space-y-6 pt-4 lg:pt-0">
               {/* Giant "Piano" display title identical to screenshot */}
               <div className="relative">
-                <h1 className="text-[84px] sm:text-[120px] md:text-[145px] lg:text-[150px] xl:text-[185px] font-bold tracking-tight text-[#8598b0] leading-[0.88] select-none">
+                <h1 className="text-[84px] sm:text-[120px] md:text-[145px] lg:text-[150px] xl:text-[225px] font-bold tracking-tight text-[#8598b0] leading-[0.88] select-none">
                   Piano
                 </h1>
               </div>
@@ -204,7 +204,7 @@ export const Home = () => {
               />
 
               {/* Concert Grand Piano positioned in front */}
-              <div className="relative z-10 w-full max-w-[560px] sm:max-w-[620px] lg:max-w-[680px] -ml-4 sm:-ml-12 lg:-ml-16">
+              <div className="relative z-10 w-[115%] sm:w-[125%] lg:w-[138%] xl:w-[145%] max-w-none -ml-8 sm:-ml-16 lg:-ml-28 -mt-6 sm:-mt-10 lg:-mt-14">
                 <img
                   src={grandPiano}
                   alt="Glossy Concert Grand Piano"

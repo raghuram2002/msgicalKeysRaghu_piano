@@ -53,7 +53,7 @@ export const Header = () => {
       <header
         id="main-app-header"
         className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${isScrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/80 py-3 shadow-xs'
+          ? 'bg-white/95 backdrop-blur-md border-b border-slate-100/60 py-3 shadow-xs'
           : 'bg-white/70 backdrop-blur-xs py-4 sm:py-5'
           }`}
       >

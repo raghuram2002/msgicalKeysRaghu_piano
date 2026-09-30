@@ -59,15 +59,15 @@ export const CourseDetails: React.FC = () => {
 
   if (!course) {
     return (
-      <div className="min-h-screen bg-[#0b0c10] text-[#e5e7eb] pt-32 pb-24 flex items-center justify-center">
-        <div className="text-center p-8 bg-[#12141c] border border-[#212634] rounded-2xl max-w-md">
-          <h2 className="font-editorial text-2xl text-white mb-2">Course Not Found</h2>
-          <p className="text-xs text-zinc-400 mb-6">
+      <div className="min-h-screen bg-white text-slate-800 pt-32 pb-24 flex items-center justify-center">
+        <div className="text-center p-8 bg-slate-50 border border-slate-200 rounded-2xl max-w-md shadow-xs">
+          <h2 className="text-2xl text-slate-900 font-bold mb-2">Course Not Found</h2>
+          <p className="text-xs text-slate-500 mb-6">
             The course you are looking for does not exist or may have been updated.
           </p>
           <Link
             to="/courses"
-            className="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-semibold text-xs rounded-xl"
+            className="px-5 py-2.5 bg-[#7388a5] hover:bg-[#5f7491] text-white font-medium text-xs rounded-xl shadow-xs"
           >
             Browse All Courses
           </Link>
@@ -108,40 +108,40 @@ export const CourseDetails: React.FC = () => {
     : 0;
 
   return (
-    <div className="min-h-screen bg-[#0b0c10] text-[#e5e7eb] pt-28 pb-24">
+    <div className="min-h-screen bg-white text-slate-800 pt-24 pb-24">
       {/* 16. COURSE HERO SECTION */}
-      <section className="bg-[#0e1017] border-b border-[#1f2331] py-12 lg:py-16">
+      <section className="bg-slate-50 border-b border-slate-200 py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
             {/* Left Info */}
             <div className="lg:col-span-7 space-y-5">
               {/* Badges */}
               <div className="flex flex-wrap items-center gap-2">
-                <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-md bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-md bg-[#eef3f9] text-[#475e7d] border border-[#cbd8e8]">
                   {course.category}
                 </span>
-                <span className="px-3 py-1 text-xs font-medium rounded-md bg-[#181a24] text-zinc-300 border border-[#2c3140]">
+                <span className="px-3 py-1 text-xs font-medium rounded-md bg-white text-slate-600 border border-slate-200 shadow-2xs">
                   {course.level}
                 </span>
-                <span className="px-3 py-1 text-xs font-medium rounded-md bg-[#181a24] text-zinc-300 border border-[#2c3140]">
+                <span className="px-3 py-1 text-xs font-medium rounded-md bg-white text-slate-600 border border-slate-200 shadow-2xs">
                   {course.duration}
                 </span>
               </div>
 
-              <h1 className="font-editorial text-3xl sm:text-4xl lg:text-5xl text-white font-normal leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl text-slate-900 font-bold leading-tight">
                 {course.title}
               </h1>
 
-              <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-2xl">
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl">
                 {course.subtitle}
               </p>
 
               {/* Meta row */}
-              <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2 text-xs sm:text-sm text-zinc-400">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2 text-xs sm:text-sm text-slate-500">
                 <Rating rating={course.rating} count={course.reviewsCount} size="md" />
 
                 <div className="flex items-center gap-1.5">
-                  <Users className="w-4 h-4 text-zinc-500" />
+                  <Users className="w-4 h-4 text-slate-400" />
                   <span>{course.studentsCount.toLocaleString()} musicians enrolled</span>
                 </div>
 
@@ -149,32 +149,32 @@ export const CourseDetails: React.FC = () => {
                   <img
                     src={course.instructor.avatar}
                     alt={course.instructor.name}
-                    className="w-6 h-6 rounded-full object-cover border border-zinc-700"
+                    className="w-6 h-6 rounded-full object-cover border border-slate-200"
                   />
-                  <span>Taught by <strong className="text-zinc-200">{course.instructor.name}</strong></span>
+                  <span>Taught by <strong className="text-slate-800">{course.instructor.name}</strong></span>
                 </div>
               </div>
             </div>
 
             {/* Right Card / Enrollment Box */}
             <div className="lg:col-span-5">
-              <div className="bg-[#13151e] border border-[#252b3a] rounded-3xl p-6 shadow-2xl space-y-6 sticky top-24">
+              <div className="bg-white border border-slate-200 rounded-3xl p-6 shadow-xl space-y-6 sticky top-24">
                 {/* Thumbnail with free preview trigger */}
-                <div className="relative aspect-video rounded-2xl overflow-hidden group border border-[#242838] bg-black">
+                <div className="relative aspect-video rounded-2xl overflow-hidden group border border-slate-200 bg-black">
                   <img
                     src={course.thumbnail}
                     alt={course.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                     <button
                       onClick={() => setIsPreviewOpen(true)}
-                      className="w-14 h-14 rounded-full bg-amber-500 hover:bg-amber-400 text-zinc-950 flex items-center justify-center shadow-xl transform hover:scale-110 transition-all cursor-pointer"
+                      className="w-14 h-14 rounded-full bg-[#7388a5] hover:bg-[#5f7491] text-white flex items-center justify-center shadow-xl transform hover:scale-110 transition-all cursor-pointer"
                     >
-                      <PlayCircle className="w-8 h-8 fill-zinc-950 text-amber-500" />
+                      <PlayCircle className="w-8 h-8 fill-white text-[#7388a5]" />
                     </button>
                   </div>
-                  <span className="absolute bottom-3 left-3 text-[11px] font-medium bg-black/70 px-2.5 py-1 rounded text-emerald-300 border border-emerald-500/40 backdrop-blur-xs">
+                  <span className="absolute bottom-3 left-3 text-[11px] font-medium bg-white/95 px-2.5 py-1 rounded text-emerald-700 border border-emerald-300 shadow-2xs">
                     Free Sample Lesson Preview
                   </span>
                 </div>
@@ -183,28 +183,28 @@ export const CourseDetails: React.FC = () => {
                 <div className="space-y-4">
                   <div className="flex items-baseline justify-between">
                     <div className="flex items-baseline gap-2.5">
-                      <span className="text-3xl font-bold text-amber-400">
+                      <span className="text-3xl font-bold text-slate-900">
                         ${course.price}
                       </span>
                       {course.originalPrice && (
-                        <span className="text-base line-through text-zinc-500">
+                        <span className="text-base line-through text-slate-400">
                           ${course.originalPrice}
                         </span>
                       )}
                       {discountPercent > 0 && (
-                        <span className="text-xs font-bold text-emerald-400 px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-800/40">
+                        <span className="text-xs font-bold text-emerald-700 px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200">
                           {discountPercent}% OFF
                         </span>
                       )}
                     </div>
-                    <span className="text-xs text-zinc-400">One-time payment</span>
+                    <span className="text-xs text-slate-500">One-time payment</span>
                   </div>
 
                   {/* Enroll CTA */}
                   <button
                     onClick={handleEnrollClick}
                     id="course-hero-enroll-button"
-                    className="w-full py-3.5 px-6 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-semibold text-sm shadow-xl shadow-amber-500/15 flex items-center justify-center gap-2 transition-all cursor-pointer"
+                    className="w-full py-3.5 px-6 rounded-xl bg-[#7388a5] hover:bg-[#5f7491] text-white font-medium text-sm shadow-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
                   >
                     {enrolled ? (
                       <>
@@ -235,17 +235,17 @@ export const CourseDetails: React.FC = () => {
                       }
                       className={`flex-1 py-2 px-3 rounded-xl border text-xs font-medium flex items-center justify-center gap-1.5 transition-colors cursor-pointer ${
                         wishlisted
-                          ? 'bg-rose-500/15 text-rose-300 border-rose-500/30'
-                          : 'bg-[#181a24] text-zinc-300 hover:text-white border-[#2b3040]'
+                          ? 'bg-rose-50 text-rose-600 border-rose-200'
+                          : 'bg-slate-100 text-slate-700 hover:text-slate-900 border-slate-200'
                       }`}
                     >
-                      <Heart className={`w-3.5 h-3.5 ${wishlisted ? 'fill-rose-400 text-rose-400' : ''}`} />
+                      <Heart className={`w-3.5 h-3.5 ${wishlisted ? 'fill-rose-500 text-rose-500' : ''}`} />
                       <span>{wishlisted ? 'Saved' : 'Wishlist'}</span>
                     </button>
 
                     <button
                       onClick={handleShare}
-                      className="py-2 px-3 rounded-xl bg-[#181a24] hover:bg-zinc-800 text-zinc-300 border border-[#2b3040] text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer"
+                      className="py-2 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer"
                     >
                       <Share2 className="w-3.5 h-3.5" />
                       <span>{copiedLink ? 'Link Copied!' : 'Share'}</span>
@@ -253,21 +253,21 @@ export const CourseDetails: React.FC = () => {
                   </div>
 
                   {/* Course inclusions bullet list */}
-                  <div className="pt-4 border-t border-[#202534] space-y-2 text-xs text-zinc-400">
+                  <div className="pt-4 border-t border-slate-200 space-y-2 text-xs text-slate-600">
                     <div className="flex items-center gap-2">
-                      <Clock className="w-3.5 h-3.5 text-amber-400" />
+                      <Clock className="w-3.5 h-3.5 text-[#7388a5]" />
                       <span>{course.duration} on-demand 4K video</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <BookOpen className="w-3.5 h-3.5 text-amber-400" />
+                      <BookOpen className="w-3.5 h-3.5 text-[#7388a5]" />
                       <span>{course.lessonsCount} lessons & comprehensive downloadable sheets</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#7388a5]" />
                       <span>Full lifetime access with 30-day money-back guarantee</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Award className="w-3.5 h-3.5 text-amber-400" />
+                      <Award className="w-3.5 h-3.5 text-[#7388a5]" />
                       <span>Certificate of completion upon finishing capstone</span>
                     </div>
                   </div>
@@ -284,15 +284,15 @@ export const CourseDetails: React.FC = () => {
           {/* Main Content Column */}
           <div className="lg:col-span-8 space-y-16">
             {/* What You'll Learn */}
-            <div className="p-7 rounded-3xl bg-[#12141d] border border-[#212634] space-y-6" id="what-you-will-learn">
-              <h3 className="font-editorial text-2xl text-white font-normal">
+            <div className="p-7 rounded-3xl bg-slate-50 border border-slate-200 space-y-6" id="what-you-will-learn">
+              <h3 className="text-2xl text-slate-900 font-bold">
                 What You'll Learn in This Course
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {course.learningOutcomes.map((outcome, idx) => (
                   <div key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                    <CheckCircle2 className="w-4 h-4 text-[#7388a5] shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                       {outcome}
                     </span>
                   </div>
@@ -302,17 +302,17 @@ export const CourseDetails: React.FC = () => {
 
             {/* Course Overview Description */}
             <div className="space-y-4">
-              <h3 className="font-editorial text-2xl text-white font-normal">
+              <h3 className="text-2xl text-slate-900 font-bold">
                 Course Overview
               </h3>
-              <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                 {course.description}
               </p>
-              <div className="p-4 rounded-xl bg-[#141620] border border-[#232736] text-xs text-zinc-400 space-y-2">
-                <span className="font-semibold text-zinc-200 block uppercase tracking-wider text-[11px]">
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-2">
+                <span className="font-semibold text-slate-800 block uppercase tracking-wider text-[11px]">
                   Requirements & Prerequisites:
                 </span>
-                <ul className="list-disc list-inside space-y-1 text-zinc-400">
+                <ul className="list-disc list-inside space-y-1 text-slate-600">
                   {course.requirements.map((req, idx) => (
                     <li key={idx}>{req}</li>
                   ))}
@@ -324,10 +324,10 @@ export const CourseDetails: React.FC = () => {
             <div className="space-y-6" id="course-curriculum">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="font-editorial text-2xl text-white font-normal">
+                  <h3 className="text-2xl text-slate-900 font-bold">
                     Course Curriculum
                   </h3>
-                  <p className="text-xs text-zinc-400 mt-1">
+                  <p className="text-xs text-slate-500 mt-1">
                     {course.curriculum.length} Modules · {course.lessonsCount} Lessons · {course.duration} Total Length
                   </p>
                 </div>
@@ -342,7 +342,7 @@ export const CourseDetails: React.FC = () => {
                       setExpandedModules(all);
                     }
                   }}
-                  className="text-xs text-amber-400 hover:text-amber-300 font-medium"
+                  className="text-xs text-[#7388a5] hover:text-slate-900 font-medium cursor-pointer"
                 >
                   Toggle All Modules
                 </button>
@@ -354,29 +354,29 @@ export const CourseDetails: React.FC = () => {
                   return (
                     <div
                       key={mod.id}
-                      className="rounded-2xl bg-[#12141c] border border-[#212634] overflow-hidden transition-all"
+                      className="rounded-2xl bg-white border border-slate-200 overflow-hidden transition-all shadow-2xs"
                     >
                       <button
                         onClick={() => toggleModule(mod.id)}
-                        className="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-[#161924] transition-colors cursor-pointer"
+                        className="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-slate-50 transition-colors cursor-pointer"
                       >
                         <div className="flex items-center gap-3">
-                          <span className="font-medium text-sm text-white">
+                          <span className="font-semibold text-sm text-slate-900">
                             {mod.title}
                           </span>
-                          <span className="text-xs text-zinc-500">
+                          <span className="text-xs text-slate-500">
                             ({mod.lessons.length} lessons)
                           </span>
                         </div>
                         {isOpen ? (
-                          <ChevronUp className="w-4 h-4 text-zinc-400" />
+                          <ChevronUp className="w-4 h-4 text-slate-400" />
                         ) : (
-                          <ChevronDown className="w-4 h-4 text-zinc-400" />
+                          <ChevronDown className="w-4 h-4 text-slate-400" />
                         )}
                       </button>
 
                       {isOpen && (
-                        <div className="px-5 pb-4 pt-1 border-t border-[#1d222e] divide-y divide-[#1b1f2b]">
+                        <div className="px-5 pb-4 pt-1 border-t border-slate-100 divide-y divide-slate-100">
                           {mod.lessons.map((lesson) => (
                             <div
                               key={lesson.id}
@@ -384,11 +384,11 @@ export const CourseDetails: React.FC = () => {
                             >
                               <div className="flex items-center gap-3 min-w-0">
                                 {lesson.isFreePreview ? (
-                                  <PlayCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                                  <PlayCircle className="w-4 h-4 text-emerald-600 shrink-0" />
                                 ) : (
-                                  <Lock className="w-4 h-4 text-zinc-600 shrink-0" />
+                                  <Lock className="w-4 h-4 text-slate-400 shrink-0" />
                                 )}
-                                <span className="text-zinc-300 truncate">
+                                <span className="text-slate-700 truncate">
                                   {lesson.title}
                                 </span>
                               </div>
@@ -397,12 +397,12 @@ export const CourseDetails: React.FC = () => {
                                 {lesson.isFreePreview && (
                                   <button
                                     onClick={() => setIsPreviewOpen(true)}
-                                    className="px-2 py-0.5 rounded bg-emerald-950/70 border border-emerald-500/40 text-emerald-400 font-semibold text-[10px] hover:bg-emerald-900/80 cursor-pointer"
+                                    className="px-2 py-0.5 rounded bg-emerald-50 border border-emerald-300 text-emerald-700 font-semibold text-[10px] hover:bg-emerald-100 cursor-pointer"
                                   >
                                     Preview
                                   </button>
                                 )}
-                                <span className="text-zinc-500 font-mono">
+                                <span className="text-slate-400 font-mono">
                                   {lesson.duration}
                                 </span>
                               </div>
@@ -417,27 +417,27 @@ export const CourseDetails: React.FC = () => {
             </div>
 
             {/* Instructor Profile Card */}
-            <div className="p-7 rounded-3xl bg-[#12141d] border border-[#212634] space-y-4">
-              <span className="text-xs uppercase tracking-widest font-semibold text-amber-400/90">
+            <div className="p-7 rounded-3xl bg-slate-50 border border-slate-200 space-y-4">
+              <span className="text-xs uppercase tracking-widest font-semibold text-[#7388a5]">
                 Your Instructor
               </span>
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
                 <img
                   src={course.instructor.avatar}
                   alt={course.instructor.name}
-                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover border-2 border-amber-400/30 shrink-0"
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover border-2 border-slate-200 shrink-0 shadow-sm"
                 />
                 <div>
-                  <h4 className="font-editorial text-xl text-white font-normal">
+                  <h4 className="text-xl font-bold text-slate-900">
                     {course.instructor.name}
                   </h4>
-                  <p className="text-xs text-amber-400/90 font-medium mb-1">
+                  <p className="text-xs text-[#7388a5] font-medium mb-1">
                     {course.instructor.role}
                   </p>
-                  <p className="text-xs text-zinc-400 leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     {course.instructor.bio}
                   </p>
-                  <div className="flex items-center gap-4 mt-2 text-xs text-zinc-500">
+                  <div className="flex items-center gap-4 mt-2 text-xs text-slate-500">
                     <span>{course.instructor.experience}</span>
                     <span>·</span>
                     <span>{course.instructor.studentsCount.toLocaleString()} Students</span>
@@ -448,7 +448,7 @@ export const CourseDetails: React.FC = () => {
 
             {/* Reviews Section */}
             <div className="space-y-6">
-              <h3 className="font-editorial text-2xl text-white font-normal">
+              <h3 className="text-2xl text-slate-900 font-bold">
                 Student Reviews & Ratings
               </h3>
 
@@ -456,14 +456,14 @@ export const CourseDetails: React.FC = () => {
                 {course.reviews.map((rev) => (
                   <div
                     key={rev.id}
-                    className="p-5 rounded-2xl bg-[#12141c] border border-[#212634] space-y-3"
+                    className="p-5 rounded-2xl bg-white border border-slate-200 space-y-3 shadow-2xs"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-medium text-xs text-white">{rev.userName}</span>
-                      <span className="text-[10px] text-zinc-500">{rev.date}</span>
+                      <span className="font-semibold text-xs text-slate-800">{rev.userName}</span>
+                      <span className="text-[10px] text-slate-400">{rev.date}</span>
                     </div>
                     <Rating rating={rev.rating} showCount={false} size="sm" />
-                    <p className="text-xs text-zinc-300 leading-relaxed italic">
+                    <p className="text-xs text-slate-600 leading-relaxed italic">
                       "{rev.comment}"
                     </p>
                   </div>
@@ -473,20 +473,20 @@ export const CourseDetails: React.FC = () => {
 
             {/* FAQ Section */}
             <div className="space-y-4">
-              <h3 className="font-editorial text-2xl text-white font-normal flex items-center gap-2">
-                <HelpCircle className="w-5 h-5 text-amber-400" />
+              <h3 className="text-2xl text-slate-900 font-bold flex items-center gap-2">
+                <HelpCircle className="w-5 h-5 text-[#7388a5]" />
                 Frequently Asked Questions
               </h3>
               <div className="space-y-3">
                 {faqs.slice(0, 4).map((faq, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-xl bg-[#12141c] border border-[#212634] space-y-2"
+                    className="p-4 rounded-xl bg-white border border-slate-200 space-y-2 shadow-2xs"
                   >
-                    <h5 className="text-xs sm:text-sm font-semibold text-white">
+                    <h5 className="text-xs sm:text-sm font-semibold text-slate-800">
                       {faq.question}
                     </h5>
-                    <p className="text-xs text-zinc-400 leading-relaxed">
+                    <p className="text-xs text-slate-600 leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
@@ -497,7 +497,7 @@ export const CourseDetails: React.FC = () => {
 
           {/* Recommended Courses Sidebar */}
           <div className="lg:col-span-4 space-y-6">
-            <h4 className="font-editorial text-xl text-white font-normal">
+            <h4 className="text-xl text-slate-900 font-bold">
               You May Also Like
             </h4>
             <div className="space-y-5">

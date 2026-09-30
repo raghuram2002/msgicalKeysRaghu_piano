@@ -23,6 +23,7 @@ import { BlogCard } from '../components/BlogCard';
 import { TestimonialSlider } from '../components/TestimonialSlider';
 import { PreviewVideoModal } from '../components/PreviewVideoModal';
 import { Course } from '../types';
+const grandPiano = '/images/grandPiano.png';
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -129,37 +130,36 @@ export const Home: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0b0c10] text-[#e5e7eb]">
-      {/* 4. HERO SECTION */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden border-b border-[#1b1e2a]" id="hero-section">
-        {/* Subtle Warm Amber Glow Accents */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-amber-600/10 blur-[130px] rounded-full pointer-events-none" />
-        <div className="absolute -top-12 -right-12 w-96 h-96 bg-amber-800/10 blur-[100px] rounded-full pointer-events-none" />
-
+    <div className="min-h-screen bg-white text-slate-800">
+      {/* 4. HERO SECTION - MATCHING SCREENSHOT EXACTLY */}
+      <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-28 overflow-hidden bg-white" id="hero-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Hero Copy */}
-            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-300 text-xs font-medium tracking-wide">
-                <Flame className="w-3.5 h-3.5 text-amber-400" />
-                <span>Modern Music Academy & Digital Store</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center min-h-[520px] lg:min-h-[620px]">
+            {/* Left Column: Giant "Piano" typography + Subtext + CTAs */}
+            <div className="lg:col-span-6 z-20 flex flex-col justify-center text-left space-y-6 pt-4 lg:pt-0">
+              {/* Giant "Piano" display title identical to screenshot */}
+              <div className="relative">
+                <h1 className="text-[84px] sm:text-[120px] md:text-[145px] lg:text-[150px] xl:text-[185px] font-bold tracking-tight text-[#8598b0] leading-[0.88] select-none">
+                  Piano
+                </h1>
               </div>
 
-              <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl text-white font-normal tracking-tight leading-[1.1]">
-                Learn Music. <br className="hidden sm:block" />
-                <span className="italic font-serif text-amber-300/95">Play What You Love.</span>
-              </h1>
+              {/* Subtext matching screenshot */}
+              <div className="space-y-4 max-w-lg">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                </p>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  Master piano and guitar through practical lessons, structured courses, and song-based learning designed for real musicians.
+                </p>
+              </div>
 
-              <p className="text-base sm:text-lg text-zinc-300 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Master piano and guitar through practical lessons, structured courses, and song-based learning designed for real musicians.
-              </p>
-
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 <Link
                   to="/courses"
                   id="hero-explore-courses-cta"
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-semibold text-sm shadow-xl shadow-amber-500/15 flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  className="px-7 py-3.5 rounded-xl bg-[#7388a5] hover:bg-[#5f7491] text-white font-medium text-sm shadow-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
                 >
                   <span>Explore Courses</span>
                   <ArrowRight className="w-4 h-4" />
@@ -168,82 +168,69 @@ export const Home: React.FC = () => {
                 <button
                   onClick={() => setSelectedPreviewCourse(courses[0])}
                   id="hero-free-preview-cta"
-                  className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#171a25] hover:bg-[#202534] text-zinc-200 hover:text-white border border-[#2d3345] font-medium text-sm flex items-center justify-center gap-2.5 transition-all cursor-pointer"
+                  className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 font-medium text-sm flex items-center justify-center gap-2.5 transition-all cursor-pointer shadow-2xs"
                 >
-                  <div className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center">
-                    <Play className="w-2.5 h-2.5 ml-0.5 fill-amber-400" />
+                  <div className="w-5 h-5 rounded-full bg-[#8598b0]/20 text-[#546b89] flex items-center justify-center">
+                    <Play className="w-2.5 h-2.5 ml-0.5 fill-[#546b89]" />
                   </div>
                   <span>Watch Free Lesson</span>
                 </button>
               </div>
 
-              {/* Quick trust pill */}
-              <div className="flex items-center justify-center lg:justify-start gap-4 pt-4 text-xs text-zinc-400">
+              {/* Quick trust pills */}
+              <div className="flex flex-wrap items-center gap-3 pt-2 text-xs text-slate-500">
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                   <span>30-Day Money-Back</span>
                 </div>
                 <span>·</span>
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                   <span>Lifetime Access</span>
                 </div>
                 <span>·</span>
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                   <span>4K Multi-Angle Lessons</span>
                 </div>
               </div>
             </div>
 
-            {/* Hero Visual Studio Showcase */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl overflow-hidden border border-[#262c3e] shadow-2xl bg-[#12141c]">
-                <img
-                  src="https://images.unsplash.com/photo-1710282965041-8296adaf2403?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Piano keys in warm studio light"
-                  className="w-full aspect-[4/3] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+            {/* Right Column: Slate Blue Circle + Glossy Concert Grand Piano */}
+            <div className="lg:col-span-6 relative flex items-center justify-center lg:justify-end min-h-[380px] sm:min-h-[460px] lg:min-h-[580px]">
+              {/* Slate Blue Solid Circle from the Screenshot */}
+              <div
+                className="absolute right-0 sm:right-4 top-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] md:w-[440px] md:h-[440px] lg:w-[460px] lg:h-[460px] rounded-full bg-[#8598b0] z-0 pointer-events-none transition-transform duration-700 hover:scale-105"
+                style={{
+                  boxShadow: '0 20px 40px -15px rgba(133, 152, 176, 0.4)'
+                }}
+              />
 
-                {/* Floating mini badge 1 */}
-                <div className="absolute top-4 left-4 p-3 rounded-2xl bg-[#0e1017]/90 backdrop-blur-md border border-[#2b3040] shadow-lg flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">
-                    <Music className="w-5 h-5" />
+              {/* Concert Grand Piano positioned in front */}
+              <div className="relative z-10 w-full max-w-[560px] sm:max-w-[620px] lg:max-w-[680px] -ml-4 sm:-ml-12 lg:-ml-16">
+                <img
+                  src={grandPiano}
+                  alt="Glossy Concert Grand Piano"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (!target.dataset.tried) {
+                      target.dataset.tried = '1';
+                      target.src = '/images/piano.png';
+                    }
+                  }}
+                  className="w-full h-auto object-contain select-none mix-blend-multiply drop-shadow-2xl transform lg:-rotate-1 hover:scale-102 transition-transform duration-500"
+                />
+
+                {/* Subtle floating badge */}
+                {/* <div className="absolute bottom-4 left-6 p-3 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg hidden sm:flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-[#eef3f9] text-[#475e7d] flex items-center justify-center font-bold">
+                    <Music className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[10px] text-zinc-400 uppercase tracking-wider block">Featured Masterclass</span>
-                    <span className="text-xs font-semibold text-white">Piano Fundamentals</span>
+                    <span className="text-[10px] text-slate-500 uppercase tracking-wider block">Concert Quality</span>
+                    <span className="text-xs font-semibold text-slate-900">Grand Piano & Indian Melodies</span>
                   </div>
-                </div>
-
-                {/* Floating mini badge 2 (Active students) */}
-                <div className="absolute bottom-4 inset-x-4 p-3.5 rounded-2xl bg-[#0e1017]/90 backdrop-blur-md border border-[#2b3040] flex items-center justify-between">
-                  <div className="flex items-center gap-2.5">
-                    <div className="flex -space-x-2">
-                      <img
-                        className="w-7 h-7 rounded-full border border-zinc-700 object-cover"
-                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
-                        alt="Student"
-                      />
-                      <img
-                        className="w-7 h-7 rounded-full border border-zinc-700 object-cover"
-                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
-                        alt="Student"
-                      />
-                      <img
-                        className="w-7 h-7 rounded-full border border-zinc-700 object-cover"
-                        src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80"
-                        alt="Student"
-                      />
-                    </div>
-                    <span className="text-xs text-zinc-300 font-medium">1,240+ Active Learners</span>
-                  </div>
-                  <div className="flex items-center gap-1 text-amber-400 text-xs font-semibold">
-                    <Star className="w-3.5 h-3.5 fill-amber-400" />
-                    <span>4.96/5</span>
-                  </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -251,41 +238,41 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 5. TRUST / STATISTICS SECTION */}
-      <section className="py-12 bg-[#0e1017] border-b border-[#1b1e2a]" id="trust-stats-section">
+      <section className="py-12 bg-slate-50 border-y border-slate-200" id="trust-stats-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
-            <div className="p-5 rounded-2xl bg-[#12141d] border border-[#212634] text-center space-y-1">
-              <span className="font-editorial text-3xl sm:text-4xl text-amber-400 font-normal block">
+            <div className="p-5 rounded-2xl bg-white border border-slate-200 text-center space-y-1 shadow-2xs">
+              <span className="text-3xl sm:text-4xl text-[#475e7d] font-bold block">
                 1,000+
               </span>
-              <span className="text-xs sm:text-sm text-zinc-400 font-medium">
+              <span className="text-xs sm:text-sm text-slate-500 font-medium">
                 Students Reached
               </span>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#12141d] border border-[#212634] text-center space-y-1">
-              <span className="font-editorial text-3xl sm:text-4xl text-amber-400 font-normal block">
+            <div className="p-5 rounded-2xl bg-white border border-slate-200 text-center space-y-1 shadow-2xs">
+              <span className="text-3xl sm:text-4xl text-[#475e7d] font-bold block">
                 50+
               </span>
-              <span className="text-xs sm:text-sm text-zinc-400 font-medium">
+              <span className="text-xs sm:text-sm text-slate-500 font-medium">
                 Songs & Tutorials
               </span>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#12141d] border border-[#212634] text-center space-y-1">
-              <span className="font-editorial text-3xl sm:text-4xl text-amber-400 font-normal block">
+            <div className="p-5 rounded-2xl bg-white border border-slate-200 text-center space-y-1 shadow-2xs">
+              <span className="text-3xl sm:text-4xl text-[#475e7d] font-bold block">
                 100+
               </span>
-              <span className="text-xs sm:text-sm text-zinc-400 font-medium">
+              <span className="text-xs sm:text-sm text-slate-500 font-medium">
                 Lessons Created
               </span>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#12141d] border border-[#212634] text-center space-y-1">
-              <span className="font-editorial text-3xl sm:text-4xl text-amber-400 font-normal block flex items-center justify-center gap-1">
-                4.9<span className="text-lg text-amber-400/80">/5</span>
+            <div className="p-5 rounded-2xl bg-white border border-slate-200 text-center space-y-1 shadow-2xs">
+              <span className="text-3xl sm:text-4xl text-[#475e7d] font-bold block flex items-center justify-center gap-1">
+                4.9<span className="text-lg text-slate-400">/5</span>
               </span>
-              <span className="text-xs sm:text-sm text-zinc-400 font-medium">
+              <span className="text-xs sm:text-sm text-slate-500 font-medium">
                 Student Rating
               </span>
             </div>
@@ -297,13 +284,13 @@ export const Home: React.FC = () => {
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="featured-courses-section">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
-            <span className="text-xs uppercase tracking-widest font-semibold text-amber-400/90 block mb-2">
+            <span className="text-xs uppercase tracking-widest font-semibold text-[#7388a5] block mb-2">
               Structured Masterclasses
             </span>
-            <h2 className="font-editorial text-3xl sm:text-4xl text-white font-normal">
+            <h2 className="text-3xl sm:text-4xl text-slate-900 font-bold">
               Learn at Your Own Pace
             </h2>
-            <p className="text-sm text-zinc-400 mt-2 max-w-lg">
+            <p className="text-sm text-slate-600 mt-2 max-w-lg">
               Explore step-by-step masterclasses designed to build natural muscle memory, harmonic instinct, and stage confidence.
             </p>
           </div>
@@ -311,7 +298,7 @@ export const Home: React.FC = () => {
           <Link
             to="/courses"
             id="view-all-courses-link"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors group self-start md:self-auto"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#7388a5] hover:text-slate-900 transition-colors group self-start md:self-auto"
           >
             <span>View All Courses</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -330,16 +317,16 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 7. WHY LEARN WITH US */}
-      <section className="py-20 bg-[#0d0f15] border-y border-[#1c1f2b]" id="why-learn-with-us-section">
+      <section className="py-20 bg-slate-50 border-y border-slate-200" id="why-learn-with-us-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-            <span className="text-xs uppercase tracking-widest font-semibold text-amber-400/90">
-              The Magical Keys Raghu Method
+            <span className="text-xs uppercase tracking-widest font-semibold text-[#7388a5]">
+              The Signal House Method
             </span>
-            <h2 className="font-editorial text-3xl sm:text-4xl text-white font-normal">
+            <h2 className="text-3xl sm:text-4xl text-slate-900 font-bold">
               More Than Just Lessons
             </h2>
-            <p className="text-sm text-zinc-400">
+            <p className="text-sm text-slate-600">
               Traditional music pedagogy prioritizes dry rote memorization. Our approach starts with the songs you adore and connects theory intuitively to your hands.
             </p>
           </div>
@@ -350,21 +337,21 @@ export const Home: React.FC = () => {
               return (
                 <div
                   key={idx}
-                  className="p-7 rounded-2xl bg-[#12141d] border border-[#212634] hover:border-amber-500/30 transition-all duration-300 flex flex-col justify-between space-y-4"
+                  className="p-7 rounded-2xl bg-white border border-slate-200 hover:border-[#7388a5] shadow-xs transition-all duration-300 flex flex-col justify-between space-y-4"
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <div className="w-11 h-11 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center border border-amber-500/20">
+                      <div className="w-11 h-11 rounded-xl bg-[#eef3f9] text-[#475e7d] flex items-center justify-center border border-[#cbd8e8]">
                         <Icon className="w-5 h-5" />
                       </div>
-                      <span className="text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded bg-zinc-800/80 text-zinc-300">
+                      <span className="text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded bg-slate-100 text-slate-600">
                         {feat.badge}
                       </span>
                     </div>
-                    <h3 className="font-editorial text-xl text-white font-normal">
+                    <h3 className="text-lg font-bold text-slate-900">
                       {feat.title}
                     </h3>
-                    <p className="text-xs text-zinc-400 leading-relaxed">
+                    <p className="text-xs text-slate-600 leading-relaxed">
                       {feat.desc}
                     </p>
                   </div>
@@ -378,13 +365,13 @@ export const Home: React.FC = () => {
       {/* 8. SONG-BASED LEARNING SECTION */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="song-based-learning-section">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-          <span className="text-xs uppercase tracking-widest font-semibold text-amber-400/90">
+          <span className="text-xs uppercase tracking-widest font-semibold text-[#7388a5]">
             Repertoire & Song Library
           </span>
-          <h2 className="font-editorial text-3xl sm:text-4xl text-white font-normal">
+          <h2 className="text-3xl sm:text-4xl text-slate-900 font-bold">
             Learn the Songs You Actually Love
           </h2>
-          <p className="text-sm text-zinc-400">
+          <p className="text-sm text-slate-600">
             From vintage Bollywood and soulful raags to modern acoustic ballads and pop anthems. Click any style to dive right into its dedicated curriculum.
           </p>
         </div>
@@ -394,25 +381,25 @@ export const Home: React.FC = () => {
             <Link
               key={idx}
               to={cat.link}
-              className="group relative rounded-2xl overflow-hidden aspect-[16/10] border border-[#232736] hover:border-amber-500/50 shadow-lg transition-all duration-300 hover:-translate-y-1 block"
+              className="group relative rounded-2xl overflow-hidden aspect-[16/10] border border-slate-200 hover:border-[#7388a5] shadow-md transition-all duration-300 hover:-translate-y-1 block"
             >
               <img
                 src={cat.image}
                 alt={cat.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
               <div className="absolute bottom-4 inset-x-4 flex items-end justify-between">
                 <div>
-                  <span className="text-[10px] uppercase tracking-wider font-semibold text-amber-400 block mb-1">
+                  <span className="text-[10px] uppercase tracking-wider font-semibold text-slate-200 block mb-1">
                     {cat.count}
                   </span>
-                  <h3 className="font-editorial text-xl text-white font-normal group-hover:text-amber-300 transition-colors">
+                  <h3 className="text-xl font-bold text-white group-hover:text-slate-200 transition-colors">
                     {cat.title}
                   </h3>
-                  <p className="text-xs text-zinc-300 line-clamp-1">{cat.genre}</p>
+                  <p className="text-xs text-slate-300 line-clamp-1">{cat.genre}</p>
                 </div>
-                <div className="w-8 h-8 rounded-full bg-amber-500 text-zinc-950 flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
+                <div className="w-8 h-8 rounded-full bg-white text-slate-900 flex items-center justify-center group-hover:scale-110 transition-transform shrink-0 shadow-xs">
                   <ArrowRight className="w-4 h-4" />
                 </div>
               </div>
@@ -422,23 +409,23 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 9. INSTRUCTOR SPOTLIGHT SECTION */}
-      <section className="py-20 bg-[#0d0f15] border-y border-[#1c1f2b]" id="instructors-section">
+      <section className="py-20 bg-slate-50 border-y border-slate-200" id="instructors-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
-              <span className="text-xs uppercase tracking-widest font-semibold text-amber-400/90 block mb-2">
+              <span className="text-xs uppercase tracking-widest font-semibold text-[#7388a5] block mb-2">
                 Concert & Session Artists
               </span>
-              <h2 className="font-editorial text-3xl sm:text-4xl text-white font-normal">
+              <h2 className="text-3xl sm:text-4xl text-slate-900 font-bold">
                 Meet Your Instructors
               </h2>
-              <p className="text-sm text-zinc-400 mt-2 max-w-lg">
+              <p className="text-sm text-slate-600 mt-2 max-w-lg">
                 Learn directly from working arrangers, concert pianists, and fingerstyle innovators who demystify professional technique.
               </p>
             </div>
             <Link
               to="/about"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors group"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#7388a5] hover:text-slate-900 transition-colors group"
             >
               <span>Our Pedagogy & Faculty</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -449,37 +436,37 @@ export const Home: React.FC = () => {
             {instructors.map((inst) => (
               <div
                 key={inst.id}
-                className="rounded-2xl bg-[#12141c] border border-[#212634] p-6 space-y-4 hover:border-amber-500/30 transition-all flex flex-col justify-between"
+                className="rounded-2xl bg-white border border-slate-200 p-6 space-y-4 hover:border-[#7388a5] shadow-xs transition-all flex flex-col justify-between"
               >
                 <div className="space-y-4">
-                  <div className="relative aspect-square w-full rounded-xl overflow-hidden border border-[#2a2f3f]">
+                  <div className="relative aspect-square w-full rounded-xl overflow-hidden border border-slate-200">
                     <img
                       src={inst.avatar}
                       alt={inst.name}
                       className="w-full h-full object-cover"
                     />
-                    <span className="absolute bottom-3 left-3 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider rounded bg-black/80 text-amber-300 border border-zinc-700/50 backdrop-blur-xs">
+                    <span className="absolute bottom-3 left-3 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider rounded bg-white/95 text-[#475e7d] border border-slate-200 shadow-2xs">
                       {inst.instrument}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="font-editorial text-xl text-white font-normal">
+                    <h3 className="text-xl font-bold text-slate-900">
                       {inst.name}
                     </h3>
-                    <p className="text-xs text-amber-400/90 font-medium mb-2">
+                    <p className="text-xs text-[#7388a5] font-medium mb-2">
                       {inst.role}
                     </p>
-                    <p className="text-xs text-zinc-400 leading-relaxed">
+                    <p className="text-xs text-slate-600 leading-relaxed">
                       {inst.bio}
                     </p>
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-[#1e222f] flex items-center justify-between text-xs text-zinc-400">
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
                   <span>{inst.experience}</span>
-                  <div className="flex items-center gap-1 text-amber-400">
-                    <Star className="w-3.5 h-3.5 fill-amber-400" />
+                  <div className="flex items-center gap-1 text-amber-500 font-semibold">
+                    <Star className="w-3.5 h-3.5 fill-amber-500" />
                     <span>{inst.rating}</span>
                   </div>
                 </div>
@@ -492,13 +479,13 @@ export const Home: React.FC = () => {
       {/* 10. TESTIMONIALS SLIDER SECTION */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="testimonials-section">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-          <span className="text-xs uppercase tracking-widest font-semibold text-amber-400/90">
+          <span className="text-xs uppercase tracking-widest font-semibold text-[#7388a5]">
             Student Transformations
           </span>
-          <h2 className="font-editorial text-3xl sm:text-4xl text-white font-normal">
+          <h2 className="text-3xl sm:text-4xl text-slate-900 font-bold">
             Real Musicians. Real Progress.
           </h2>
-          <p className="text-sm text-zinc-400">
+          <p className="text-sm text-slate-600">
             From absolute adult beginners to aspiring producers, hear how our students unlocked real musical expression.
           </p>
         </div>
@@ -507,23 +494,23 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 11. BLOG PREVIEW SECTION */}
-      <section className="py-20 bg-[#0d0f15] border-y border-[#1c1f2b]" id="blog-preview-section">
+      <section className="py-20 bg-slate-50 border-y border-slate-200" id="blog-preview-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
-              <span className="text-xs uppercase tracking-widest font-semibold text-amber-400/90 block mb-2">
+              <span className="text-xs uppercase tracking-widest font-semibold text-[#7388a5] block mb-2">
                 The Music Journal
               </span>
-              <h2 className="font-editorial text-3xl sm:text-4xl text-white font-normal">
+              <h2 className="text-3xl sm:text-4xl text-slate-900 font-bold">
                 Lessons & Practice Tips
               </h2>
-              <p className="text-sm text-zinc-400 mt-2 max-w-lg">
+              <p className="text-sm text-slate-600 mt-2 max-w-lg">
                 Technique breakdowns, practice hacks, chord progression cheat sheets, and ear-training blueprints.
               </p>
             </div>
             <Link
               to="/blogs"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors group"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#7388a5] hover:text-slate-900 transition-colors group"
             >
               <span>View All Articles</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -540,22 +527,22 @@ export const Home: React.FC = () => {
 
       {/* 12. NEWSLETTER / LEAD CAPTURE SECTION */}
       <section className="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8" id="newsletter-lead-section">
-        <div className="rounded-3xl bg-gradient-to-br from-[#171a25] to-[#10121a] border border-[#2b3142] p-8 sm:p-12 text-center space-y-6 shadow-2xl relative overflow-hidden">
-          <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 border border-amber-500/30 flex items-center justify-center mx-auto">
+        <div className="rounded-3xl bg-white border border-slate-200 p-8 sm:p-12 text-center space-y-6 shadow-xl relative overflow-hidden">
+          <div className="w-12 h-12 rounded-2xl bg-[#eef3f9] text-[#475e7d] border border-[#cbd8e8] flex items-center justify-center mx-auto">
             <BookOpen className="w-6 h-6" />
           </div>
 
           <div className="max-w-xl mx-auto space-y-2">
-            <h2 className="font-editorial text-2xl sm:text-3xl text-white font-normal">
+            <h2 className="text-2xl sm:text-3xl text-slate-900 font-bold">
               Get Better at Music, One Lesson at a Time.
             </h2>
-            <p className="text-xs sm:text-sm text-zinc-400">
+            <p className="text-xs sm:text-sm text-slate-600">
               Join our newsletter for piano tips, guitar lessons, new courses, song tutorials, and exclusive free practice stems.
             </p>
           </div>
 
           {subscribed ? (
-            <div className="inline-flex items-center gap-2 text-xs font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-4 py-2.5 rounded-xl">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-4 py-2.5 rounded-xl">
               <CheckCircle2 className="w-4 h-4" />
               <span>Thank you for subscribing! Your free beginner chord sheet is on its way.</span>
             </div>
@@ -567,46 +554,46 @@ export const Home: React.FC = () => {
                 placeholder="Enter your email address"
                 value={newsletterEmail}
                 onChange={(e) => setNewsletterEmail(e.target.value)}
-                className="flex-1 px-4 py-3 bg-[#0d0e14] border border-[#2b3040] rounded-xl text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500"
+                className="flex-1 px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#7388a5]"
               />
               <button
                 type="submit"
-                className="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-semibold text-xs rounded-xl shadow-lg shadow-amber-500/15 transition-all cursor-pointer whitespace-nowrap"
+                className="px-6 py-3 bg-[#7388a5] hover:bg-[#5f7491] text-white font-medium text-xs rounded-xl shadow-xs transition-all cursor-pointer whitespace-nowrap"
               >
                 Subscribe
               </button>
             </form>
           )}
 
-          <p className="text-[11px] text-zinc-500">
+          <p className="text-[11px] text-slate-400">
             No spam. Unsubscribe anytime with a single click.
           </p>
         </div>
       </section>
 
       {/* 13. FINAL CTA */}
-      <section className="py-24 bg-[#08090c] border-t border-[#1a1d26] text-center relative overflow-hidden" id="final-cta-section">
+      <section className="py-24 bg-slate-50 border-t border-slate-200 text-center relative overflow-hidden" id="final-cta-section">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 relative z-10">
-          <span className="text-xs uppercase tracking-widest font-semibold text-amber-400/90">
+          <span className="text-xs uppercase tracking-widest font-semibold text-[#7388a5]">
             Begin Your Musical Journey
           </span>
-          <h2 className="font-editorial text-3xl sm:text-5xl text-white font-normal tracking-tight">
+          <h2 className="text-3xl sm:text-5xl text-slate-900 font-bold tracking-tight">
             Your Next Song Starts Here.
           </h2>
-          <p className="text-sm sm:text-base text-zinc-400 max-w-lg mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 max-w-lg mx-auto leading-relaxed">
             Choose a course or song tutorial, sit at your instrument, and experience the thrill of playing real music from your very first session.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
             <Link
               to="/courses"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-semibold text-sm shadow-xl shadow-amber-500/15 flex items-center justify-center gap-2 transition-all cursor-pointer"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#7388a5] hover:bg-[#5f7491] text-white font-medium text-sm shadow-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
             >
               <span>Explore Courses</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               to="/store"
-              className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-[#151822] hover:bg-[#1f2332] text-zinc-200 border border-[#2b3040] font-medium text-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
+              className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-medium text-sm flex items-center justify-center gap-2 transition-all cursor-pointer shadow-2xs"
             >
               <span>Browse Digital Store</span>
             </Link>

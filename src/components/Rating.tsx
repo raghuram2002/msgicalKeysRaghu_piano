@@ -35,16 +35,16 @@ export const Rating: React.FC<RatingProps> = ({
             className={`${starSizes[size]} ${
               star <= Math.round(rating)
                 ? 'fill-amber-400 text-amber-400'
-                : 'text-zinc-600 fill-zinc-800'
+                : 'text-slate-300 fill-slate-100'
             }`}
           />
         ))}
       </div>
-      <span className={`font-medium text-amber-300/90 ${textSizes[size]}`}>
+      <span className={`font-medium text-amber-600 ${textSizes[size]}`}>
         {rating.toFixed(1)}
       </span>
       {showCount && count !== undefined && (
-        <span className="text-xs text-zinc-400">({count})</span>
+        <span className="text-xs text-slate-500">({count})</span>
       )}
     </div>
   );

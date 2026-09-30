@@ -36,17 +36,17 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b0c10] text-[#e5e7eb] pt-28 pb-24">
+    <div className="min-h-screen bg-white text-slate-800 pt-28 pb-24">
       {/* Header */}
-      <section className="border-b border-[#1d212e] bg-[#0e1017] py-16">
+      <section className="border-b border-slate-200 bg-slate-50 py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <span className="text-xs uppercase tracking-widest font-semibold text-amber-400/90 inline-block">
+          <span className="text-xs uppercase tracking-widest font-semibold text-[#637894] inline-block">
             Student Support & Mentorship
           </span>
-          <h1 className="font-editorial text-4xl sm:text-5xl text-white font-normal leading-tight">
+          <h1 className="font-bold text-4xl sm:text-5xl text-slate-900 tracking-tight leading-tight">
             We’re Here to Guide Your Playing.
           </h1>
-          <p className="text-sm sm:text-base text-zinc-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Have questions about a course level, custom 1-on-1 mentorship, or need assistance with digital downloads? Send us a message and an instructor will reply promptly.
           </p>
         </div>
@@ -55,19 +55,19 @@ export const Contact: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Contact Form */}
-          <div className="lg:col-span-7 bg-[#12141c] border border-[#212634] rounded-3xl p-6 sm:p-10 shadow-2xl">
-            <h2 className="font-editorial text-2xl text-white font-normal mb-6 flex items-center gap-2">
-              <MessageSquare className="w-5 h-5 text-amber-400" />
+          <div className="lg:col-span-7 bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm">
+            <h2 className="font-bold text-2xl text-slate-900 mb-6 flex items-center gap-2">
+              <MessageSquare className="w-5 h-5 text-[#7388a5]" />
               Send a Direct Message
             </h2>
 
             {submitted ? (
-              <div className="p-8 rounded-2xl bg-emerald-950/40 border border-emerald-500/40 text-center space-y-3">
-                <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
+              <div className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-3">
+                <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-6 h-6" />
                 </div>
-                <h3 className="font-editorial text-xl text-white">Message Received!</h3>
-                <p className="text-xs text-zinc-300 max-w-md mx-auto">
+                <h3 className="font-bold text-xl text-slate-900">Message Received!</h3>
+                <p className="text-xs text-slate-600 max-w-md mx-auto">
                   Thank you for reaching out, {name || 'Musician'}. Our academic team reviews every inquiry and will respond to your email within 2-4 business hours.
                 </p>
               </div>
@@ -75,7 +75,7 @@ export const Contact: React.FC = () => {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-xs text-zinc-400 block mb-1.5 font-medium">
+                    <label className="text-xs text-slate-600 block mb-1.5 font-medium">
                       Your Full Name *
                     </label>
                     <input
@@ -84,12 +84,12 @@ export const Contact: React.FC = () => {
                       placeholder="e.g. Maya Chen"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full px-4 py-2.5 bg-[#0e1016] border border-[#262b3a] rounded-xl text-xs sm:text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500"
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#7388a5] focus:bg-white transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="text-xs text-zinc-400 block mb-1.5 font-medium">
+                    <label className="text-xs text-slate-600 block mb-1.5 font-medium">
                       Email Address *
                     </label>
                     <input
@@ -98,14 +98,14 @@ export const Contact: React.FC = () => {
                       placeholder="e.g. maya@example.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-2.5 bg-[#0e1016] border border-[#262b3a] rounded-xl text-xs sm:text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500"
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#7388a5] focus:bg-white transition-colors"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-xs text-zinc-400 block mb-1.5 font-medium">
+                    <label className="text-xs text-slate-600 block mb-1.5 font-medium">
                       Phone / WhatsApp (Optional)
                     </label>
                     <input
@@ -113,18 +113,18 @@ export const Contact: React.FC = () => {
                       placeholder="+1 (555) 000-0000"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full px-4 py-2.5 bg-[#0e1016] border border-[#262b3a] rounded-xl text-xs sm:text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500"
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#7388a5] focus:bg-white transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="text-xs text-zinc-400 block mb-1.5 font-medium">
+                    <label className="text-xs text-slate-600 block mb-1.5 font-medium">
                       Subject / Purpose
                     </label>
                     <select
                       value={purpose}
                       onChange={(e) => setPurpose(e.target.value)}
-                      className="w-full px-4 py-2.5 bg-[#0e1016] border border-[#262b3a] rounded-xl text-xs sm:text-sm text-zinc-200 focus:outline-none focus:border-amber-500"
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-700 focus:outline-none focus:border-[#7388a5] focus:bg-white"
                     >
                       <option value="Course inquiry">Course recommendation & level guidance</option>
                       <option value="Personal mentorship">1-on-1 Live Instructor Mentorship</option>
@@ -136,7 +136,7 @@ export const Contact: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="text-xs text-zinc-400 block mb-1.5 font-medium">
+                  <label className="text-xs text-slate-600 block mb-1.5 font-medium">
                     Your Musical Background & Question *
                   </label>
                   <textarea
@@ -145,13 +145,13 @@ export const Contact: React.FC = () => {
                     placeholder="Tell us about what instrument you play, your current challenges, and how we can assist you..."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-[#0e1016] border border-[#262b3a] rounded-xl text-xs sm:text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500 resize-none"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#7388a5] focus:bg-white resize-none transition-colors"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3.5 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-semibold text-xs sm:text-sm rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-amber-500/15 cursor-pointer"
+                  className="w-full py-3.5 bg-[#7388a5] hover:bg-[#5f7491] text-white font-semibold text-xs sm:text-sm rounded-xl flex items-center justify-center gap-2 transition-all shadow-xs cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   <span>Send Message to Academic Faculty</span>
@@ -162,56 +162,56 @@ export const Contact: React.FC = () => {
 
           {/* Direct Studio Info */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-[#12141c] border border-[#212634] rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
-              <h3 className="font-editorial text-xl text-white font-normal">
+            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xs">
+              <h3 className="font-bold text-xl text-slate-900">
                 Academy Studio Offices
               </h3>
 
-              <div className="space-y-4 text-xs text-zinc-300">
+              <div className="space-y-4 text-xs text-slate-600">
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-[#eef3f9] text-[#7388a5] flex items-center justify-center shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-zinc-500 block">General & Academic Support:</span>
+                    <span className="text-slate-400 block text-[11px]">General & Academic Support:</span>
                     <a
-                      href="mailto:contact@magicalkeysraghu.com"
-                      className="font-medium text-white hover:text-amber-400"
+                      href="mailto:contact@signalhouse.com"
+                      className="font-medium text-slate-800 hover:text-[#7388a5]"
                     >
-                      contact@magicalkeysraghu.com
+                      contact@signalhouse.com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-[#eef3f9] text-[#7388a5] flex items-center justify-center shrink-0">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-zinc-500 block">WhatsApp & Admissions:</span>
-                    <span className="font-medium text-white">+1 (800) 412-2336</span>
+                    <span className="text-slate-400 block text-[11px]">WhatsApp & Admissions:</span>
+                    <span className="font-medium text-slate-800">+1 (800) 412-2336</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-[#eef3f9] text-[#7388a5] flex items-center justify-center shrink-0">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-zinc-500 block">Main Soundstage & Studio:</span>
-                    <span className="font-medium text-white">
+                    <span className="text-slate-400 block text-[11px]">Main Soundstage & Studio:</span>
+                    <span className="font-medium text-slate-800">
                       440 Harmonic Way, Suite 800, San Francisco, CA
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-[#eef3f9] text-[#7388a5] flex items-center justify-center shrink-0">
                     <Clock className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-zinc-500 block">Instructor Office Hours:</span>
-                    <span className="font-medium text-white">
+                    <span className="text-slate-400 block text-[11px]">Instructor Office Hours:</span>
+                    <span className="font-medium text-slate-800">
                       Mon – Sat: 9:00 AM – 8:00 PM PST
                     </span>
                   </div>
@@ -220,14 +220,14 @@ export const Contact: React.FC = () => {
             </div>
 
             {/* Quick 1-on-1 callout */}
-            <div className="p-6 rounded-3xl bg-gradient-to-br from-[#161a25] to-[#0f1118] border border-[#2a3142] space-y-3">
-              <span className="text-[10px] uppercase tracking-wider font-semibold text-emerald-400">
+            <div className="p-6 rounded-3xl bg-white border border-slate-200 space-y-3 shadow-xs">
+              <span className="text-[10px] uppercase tracking-wider font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 inline-block">
                 Private Mentorship
               </span>
-              <h4 className="font-editorial text-lg text-white font-normal">
+              <h4 className="font-bold text-lg text-slate-900">
                 Looking for 1-on-1 Live Coaching?
               </h4>
-              <p className="text-xs text-zinc-400 leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed">
                 We offer monthly private masterclass cohorts where you meet your designated faculty artist twice a month over Zoom for custom video analysis.
               </p>
             </div>
@@ -235,12 +235,12 @@ export const Contact: React.FC = () => {
         </div>
 
         {/* FAQ Accordion */}
-        <section className="mt-20 pt-16 border-t border-[#1d212d]" id="faq">
+        <section className="mt-20 pt-16 border-t border-slate-200" id="faq">
           <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
-            <span className="text-xs uppercase tracking-widest font-semibold text-amber-400/90">
+            <span className="text-xs uppercase tracking-widest font-semibold text-[#637894]">
               Clear Answers
             </span>
-            <h2 className="font-editorial text-3xl text-white font-normal">
+            <h2 className="font-bold text-3xl text-slate-900 tracking-tight">
               Frequently Asked Questions
             </h2>
           </div>
@@ -251,23 +251,23 @@ export const Contact: React.FC = () => {
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl bg-[#12141c] border border-[#212634] overflow-hidden"
+                  className="rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-2xs"
                 >
                   <button
                     onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                    className="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-[#161924] transition-colors cursor-pointer"
+                    className="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-slate-50 transition-colors cursor-pointer"
                   >
-                    <span className="font-medium text-sm text-white">
+                    <span className="font-semibold text-sm text-slate-900">
                       {faq.question}
                     </span>
                     {isOpen ? (
-                      <ChevronUp className="w-4 h-4 text-amber-400 shrink-0" />
+                      <ChevronUp className="w-4 h-4 text-[#7388a5] shrink-0" />
                     ) : (
-                      <ChevronDown className="w-4 h-4 text-zinc-500 shrink-0" />
+                      <ChevronDown className="w-4 h-4 text-slate-400 shrink-0" />
                     )}
                   </button>
                   {isOpen && (
-                    <div className="px-5 pb-5 pt-1 border-t border-[#1e222f] text-xs text-zinc-300 leading-relaxed">
+                    <div className="px-5 pb-5 pt-1 border-t border-slate-100 text-xs text-slate-600 leading-relaxed">
                       {faq.answer}
                     </div>
                   )}

@@ -38,18 +38,18 @@ export const About: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0b0c10] text-[#e5e7eb] pt-28 pb-24">
+    <div className="min-h-screen bg-white text-slate-800 pt-28 pb-24">
       {/* Hero Header */}
-      <section className="border-b border-[#1d212e] bg-[#0e1017] py-16 lg:py-20">
+      <section className="border-b border-slate-200 bg-slate-50 py-16 lg:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <span className="text-xs uppercase tracking-widest font-semibold text-amber-400/90 inline-block">
+          <span className="text-xs uppercase tracking-widest font-semibold text-[#637894] inline-block">
             Our Purpose & Heritage
           </span>
-          <h1 className="font-editorial text-4xl sm:text-5xl text-white font-normal leading-tight">
+          <h1 className="font-bold text-4xl sm:text-5xl text-slate-900 tracking-tight leading-tight">
             Designed for the Love of Music.
           </h1>
-          <p className="text-sm sm:text-base text-zinc-300 max-w-2xl mx-auto leading-relaxed">
-            Magical Keys Raghu was founded on a simple truth: anyone can learn to play real, breathtaking music when the curriculum connects immediately to their emotions.
+          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Signal House was founded on a simple truth: anyone can learn to play real, breathtaking music when the curriculum connects immediately to their emotions.
           </p>
         </div>
       </section>
@@ -58,13 +58,13 @@ export const About: React.FC = () => {
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 space-y-6">
-            <span className="text-xs uppercase tracking-widest font-semibold text-amber-400">
+            <span className="text-xs uppercase tracking-widest font-semibold text-[#637894]">
               The Origin Story
             </span>
-            <h2 className="font-editorial text-3xl sm:text-4xl text-white font-normal leading-tight">
+            <h2 className="font-bold text-3xl sm:text-4xl text-slate-900 tracking-tight leading-tight">
               Why We Rejected the Outdated Classical Method
             </h2>
-            <div className="space-y-4 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+            <div className="space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
               <p>
                 For generations, instrumental education was locked behind robotic Hanon drills, stiff recitals, and years of dry scale repetitions before a student was ever allowed to touch a song they actually loved.
               </p>
@@ -72,24 +72,24 @@ export const About: React.FC = () => {
                 The consequence? More than 80% of aspiring adult pianists and guitarists quit within their first six months out of pure creative exhaustion.
               </p>
               <p>
-                Magical Keys Raghu was created by concert pianists and session arrangers who asked: <em>What if we taught music the way real composers and studio musicians play it?</em> By reverse-engineering popular melodies, identifying recurring chord archetypes, and teaching the emotional mechanics behind every note.
+                Signal House was created by concert pianists and session arrangers who asked: <em>What if we taught music the way real composers and studio musicians play it?</em> By reverse-engineering popular melodies, identifying recurring chord archetypes, and teaching the emotional mechanics behind every note.
               </p>
             </div>
           </div>
 
           <div className="lg:col-span-6">
-            <div className="relative rounded-3xl overflow-hidden border border-[#252b3b] shadow-2xl bg-zinc-900">
+            <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-slate-100">
               <img
                 src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80"
                 alt="Musician playing in recording studio"
                 className="w-full aspect-[4/3] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-[#0d0e14]/90 backdrop-blur-md border border-[#242838]">
-                <p className="font-serif italic text-xs sm:text-sm text-zinc-200">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-md">
+                <p className="font-serif italic text-xs sm:text-sm text-slate-700">
                   "The piano ceased to be an intimidating piece of furniture and became my emotional outlet within four weeks."
                 </p>
-                <span className="text-[11px] text-amber-400 font-semibold block mt-1">
+                <span className="text-[11px] text-[#7388a5] font-semibold block mt-1">
                   — Priya Sharma, Mumbai (Student Cohort 2025)
                 </span>
               </div>
@@ -99,14 +99,14 @@ export const About: React.FC = () => {
       </section>
 
       {/* Core Values */}
-      <section className="bg-[#0e1017] border-y border-[#1d212e] py-20">
+      <section className="bg-slate-50 border-y border-slate-200 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-            <span className="text-xs uppercase tracking-widest font-semibold text-amber-400/90">
+            <span className="text-xs uppercase tracking-widest font-semibold text-[#637894]">
               Our Core Principles
             </span>
-            <h2 className="font-editorial text-3xl sm:text-4xl text-white font-normal">
-              The Four Pillars of Magical Keys Raghu
+            <h2 className="font-bold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+              The Four Pillars of Signal House
             </h2>
           </div>
 
@@ -116,15 +116,15 @@ export const About: React.FC = () => {
               return (
                 <div
                   key={idx}
-                  className="p-6 rounded-2xl bg-[#12141c] border border-[#212634] space-y-3"
+                  className="p-6 rounded-2xl bg-white border border-slate-200 space-y-3 shadow-xs"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center border border-amber-500/20">
+                  <div className="w-10 h-10 rounded-xl bg-[#eef3f9] text-[#7388a5] flex items-center justify-center border border-[#cbd8e8]">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-editorial text-lg text-white font-normal">
+                  <h3 className="font-bold text-lg text-slate-900">
                     {v.title}
                   </h3>
-                  <p className="text-xs text-zinc-400 leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     {v.desc}
                   </p>
                 </div>
@@ -137,14 +137,14 @@ export const About: React.FC = () => {
       {/* Faculty */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-          <span className="text-xs uppercase tracking-widest font-semibold text-amber-400/90">
+          <span className="text-xs uppercase tracking-widest font-semibold text-[#637894]">
             Teaching Artists
           </span>
-          <h2 className="font-editorial text-3xl sm:text-4xl text-white font-normal">
-            Meet the Magical Keys Raghu Faculty
+          <h2 className="font-bold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+            Meet the Signal House Faculty
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-400">
-            Each instructor at Magical Keys Raghu is an active performer, composer, or arranger dedicated to clear, empathetic pedagogy.
+          <p className="text-xs sm:text-sm text-slate-600">
+            Each instructor at Signal House is an active performer, composer, or arranger dedicated to clear, empathetic pedagogy.
           </p>
         </div>
 
@@ -152,9 +152,9 @@ export const About: React.FC = () => {
           {instructors.map((inst) => (
             <div
               key={inst.id}
-              className="p-6 rounded-3xl bg-[#12141c] border border-[#212634] space-y-4"
+              className="p-6 rounded-3xl bg-white border border-slate-200 space-y-4 shadow-xs"
             >
-              <div className="aspect-square rounded-2xl overflow-hidden border border-zinc-800">
+              <div className="aspect-square rounded-2xl overflow-hidden border border-slate-200">
                 <img
                   src={inst.avatar}
                   alt={inst.name}
@@ -163,19 +163,19 @@ export const About: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="font-editorial text-xl text-white font-normal">
+                <h3 className="font-bold text-xl text-slate-900">
                   {inst.name}
                 </h3>
-                <p className="text-xs text-amber-400 font-semibold mb-2">
+                <p className="text-xs text-[#7388a5] font-semibold mb-2">
                   {inst.role}
                 </p>
-                <p className="text-xs text-zinc-400 leading-relaxed mb-3">
+                <p className="text-xs text-slate-600 leading-relaxed mb-3">
                   {inst.bio}
                 </p>
-                <div className="pt-3 border-t border-[#1d212d] flex items-center justify-between text-xs text-zinc-500">
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
                   <span>{inst.experience}</span>
-                  <div className="flex items-center gap-1 text-amber-400">
-                    <Star className="w-3.5 h-3.5 fill-amber-400" />
+                  <div className="flex items-center gap-1 text-amber-500 font-semibold">
+                    <Star className="w-3.5 h-3.5 fill-amber-500" />
                     <span>{inst.rating}</span>
                   </div>
                 </div>
@@ -187,15 +187,15 @@ export const About: React.FC = () => {
 
       {/* 30-Day Guarantee Callout */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16" id="refunds">
-        <div className="p-8 rounded-3xl bg-gradient-to-br from-[#161a25] to-[#0f1118] border border-[#2a3142] flex flex-col sm:flex-row items-center gap-6 shadow-2xl">
-          <div className="w-16 h-16 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center border border-amber-500/30 shrink-0">
+        <div className="p-8 rounded-3xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center gap-6 shadow-sm">
+          <div className="w-16 h-16 rounded-2xl bg-[#eef3f9] text-[#7388a5] flex items-center justify-center border border-[#cbd8e8] shrink-0">
             <ShieldCheck className="w-8 h-8" />
           </div>
           <div className="space-y-1 text-center sm:text-left">
-            <h3 className="font-editorial text-2xl text-white font-normal">
+            <h3 className="font-bold text-2xl text-slate-900">
               Our 30-Day Happiness Guarantee
             </h3>
-            <p className="text-xs text-zinc-300 leading-relaxed">
+            <p className="text-xs text-slate-600 leading-relaxed">
               We stand completely behind every course we produce. If you follow the first module and don't feel a marked transformation in your playing confidence, simply email us within 30 days for a prompt, 100% refund. No questions asked.
             </p>
           </div>

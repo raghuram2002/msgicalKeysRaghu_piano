@@ -49,15 +49,15 @@ export const ProductDetails: React.FC = () => {
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-[#0b0c10] text-[#e5e7eb] pt-32 pb-24 flex items-center justify-center">
-        <div className="text-center p-8 bg-[#12141c] border border-[#212634] rounded-2xl max-w-md">
-          <h2 className="font-editorial text-2xl text-white mb-2">Product Not Found</h2>
-          <p className="text-xs text-zinc-400 mb-6">
+      <div className="min-h-screen bg-white text-slate-800 pt-32 pb-24 flex items-center justify-center">
+        <div className="text-center p-8 bg-slate-50 border border-slate-200 rounded-2xl max-w-md shadow-xs">
+          <h2 className="font-bold text-2xl text-slate-900 mb-2">Product Not Found</h2>
+          <p className="text-xs text-slate-500 mb-6">
             The requested digital product could not be located.
           </p>
           <Link
             to="/store"
-            className="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-semibold text-xs rounded-xl"
+            className="px-5 py-2.5 bg-[#7388a5] hover:bg-[#5f7491] text-white font-semibold text-xs rounded-xl"
           >
             Return to Store
           </Link>
@@ -102,61 +102,61 @@ export const ProductDetails: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b0c10] text-[#e5e7eb] pt-28 pb-24">
+    <div className="min-h-screen bg-white text-slate-800 pt-28 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-xs text-zinc-400 mb-8">
-          <Link to="/store" className="hover:text-amber-400">
+        <nav className="flex items-center gap-2 text-xs text-slate-500 mb-8">
+          <Link to="/store" className="hover:text-[#7388a5] transition-colors">
             Store
           </Link>
           <span>/</span>
-          <span className="text-zinc-500">{product.category}</span>
+          <span className="text-slate-400">{product.category}</span>
           <span>/</span>
-          <span className="text-zinc-300 truncate max-w-xs">{product.title}</span>
+          <span className="text-slate-800 font-medium truncate max-w-xs">{product.title}</span>
         </nav>
 
         {/* Product Hero Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start mb-16">
           {/* Visual Showcase */}
           <div className="lg:col-span-6 space-y-4">
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-[#262c3e] bg-zinc-900 shadow-2xl">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm">
               <img
                 src={product.thumbnail}
                 alt={product.title}
                 className="w-full h-full object-cover"
               />
-              <span className="absolute top-4 left-4 px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-md bg-black/80 text-amber-300 border border-amber-500/40">
+              <span className="absolute top-4 left-4 px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-md bg-white/90 backdrop-blur-xs text-[#475e7d] border border-[#cbd8e8] shadow-xs">
                 {product.category}
               </span>
             </div>
 
             {/* Audio Preview Simulator Bar */}
-            <div className="p-4 rounded-2xl bg-[#13151f] border border-[#252a3a] flex items-center justify-between gap-4">
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-4 shadow-xs">
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => setIsPlayingDemo(!isPlayingDemo)}
-                  className="w-10 h-10 rounded-full bg-amber-500 hover:bg-amber-400 text-zinc-950 flex items-center justify-center transition-all cursor-pointer shrink-0"
+                  className="w-10 h-10 rounded-full bg-[#7388a5] hover:bg-[#5f7491] text-white flex items-center justify-center transition-all cursor-pointer shrink-0 shadow-xs"
                 >
                   {isPlayingDemo ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
                 </button>
                 <div>
-                  <span className="text-xs font-medium text-white block">
+                  <span className="text-xs font-semibold text-slate-900 block">
                     {isPlayingDemo ? 'Playing Master Demo Track...' : 'Listen to Audio Sample'}
                   </span>
-                  <span className="text-[11px] text-zinc-400">00:45 Studio Snippet</span>
+                  <span className="text-[11px] text-slate-500">00:45 Studio Snippet</span>
                 </div>
               </div>
 
               {/* Progress track animation */}
-              <div className="flex-1 max-w-xs h-1.5 bg-zinc-800 rounded-full overflow-hidden hidden sm:block">
+              <div className="flex-1 max-w-xs h-1.5 bg-slate-200 rounded-full overflow-hidden hidden sm:block">
                 <div
-                  className={`h-full bg-amber-400 rounded-full transition-all duration-300 ${
+                  className={`h-full bg-[#7388a5] rounded-full transition-all duration-300 ${
                     isPlayingDemo ? 'w-2/3 animate-pulse' : 'w-0'
                   }`}
                 />
               </div>
 
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300">
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-200 text-slate-600 font-medium">
                 320kbps MP3
               </span>
             </div>
@@ -169,33 +169,33 @@ export const ProductDetails: React.FC = () => {
                 <Rating rating={product.rating} count={product.reviewsCount} size="sm" />
                 <button
                   onClick={handleShare}
-                  className="flex items-center gap-1 text-xs text-zinc-400 hover:text-white"
+                  className="flex items-center gap-1 text-xs text-slate-500 hover:text-slate-800 transition-colors cursor-pointer"
                 >
                   <Share2 className="w-3.5 h-3.5" />
                   <span>{copiedLink ? 'Copied' : 'Share'}</span>
                 </button>
               </div>
 
-              <h1 className="font-editorial text-3xl sm:text-4xl text-white font-normal leading-tight">
+              <h1 className="font-bold text-3xl sm:text-4xl text-slate-900 tracking-tight leading-tight">
                 {product.title}
               </h1>
-              <p className="text-sm text-zinc-300 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 {product.description}
               </p>
             </div>
 
             {/* Price section */}
-            <div className="p-5 rounded-2xl bg-[#12141d] border border-[#212634] space-y-4">
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-4 shadow-xs">
               <div className="flex items-baseline gap-3">
-                <span className="text-3xl font-bold text-amber-400">
+                <span className="text-3xl font-bold text-slate-900">
                   ${product.price}
                 </span>
                 {product.originalPrice && (
-                  <span className="text-base line-through text-zinc-500">
+                  <span className="text-base line-through text-slate-400">
                     ${product.originalPrice}
                   </span>
                 )}
-                <span className="text-xs text-emerald-400 font-semibold px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-800/40">
+                <span className="text-xs text-emerald-700 font-semibold px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200">
                   Instant Download
                 </span>
               </div>
@@ -203,7 +203,7 @@ export const ProductDetails: React.FC = () => {
               <div className="flex flex-col sm:flex-row items-center gap-3">
                 <button
                   onClick={handleAddToCart}
-                  className="w-full sm:flex-1 py-3 px-5 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  className="w-full sm:flex-1 py-3 px-5 rounded-xl bg-[#7388a5] hover:bg-[#5f7491] text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xs"
                 >
                   <ShoppingBag className="w-4 h-4" />
                   <span>Add to Shopping Cart</span>
@@ -211,7 +211,7 @@ export const ProductDetails: React.FC = () => {
 
                 <button
                   onClick={handleBuyNow}
-                  className="w-full sm:flex-1 py-3 px-5 rounded-xl bg-[#1d212f] hover:bg-[#272d3e] text-zinc-100 border border-[#2d3448] font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  className="w-full sm:flex-1 py-3 px-5 rounded-xl bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xs"
                 >
                   <span>Buy Now With 1-Click</span>
                   <ArrowRight className="w-4 h-4" />
@@ -232,17 +232,17 @@ export const ProductDetails: React.FC = () => {
                   }
                   className={`p-3 rounded-xl border transition-colors cursor-pointer ${
                     wishlisted
-                      ? 'bg-rose-500/20 text-rose-300 border-rose-500/40'
-                      : 'bg-[#181a24] text-zinc-400 hover:text-white border-[#2b3040]'
+                      ? 'bg-rose-50 text-rose-600 border-rose-200'
+                      : 'bg-white text-slate-500 hover:text-slate-800 border-slate-300'
                   }`}
                   title={wishlisted ? 'Saved in wishlist' : 'Add to wishlist'}
                 >
-                  <Heart className={`w-4 h-4 ${wishlisted ? 'fill-rose-400' : ''}`} />
+                  <Heart className={`w-4 h-4 ${wishlisted ? 'fill-rose-500 text-rose-500' : ''}`} />
                 </button>
               </div>
 
-              <div className="pt-2 text-[11px] text-zinc-400 flex items-center gap-4">
-                <span className="flex items-center gap-1 text-emerald-400">
+              <div className="pt-2 text-[11px] text-slate-500 flex items-center gap-4">
+                <span className="flex items-center gap-1 text-emerald-700 font-medium">
                   <ShieldCheck className="w-3.5 h-3.5" />
                   Lifetime download links
                 </span>
@@ -253,13 +253,13 @@ export const ProductDetails: React.FC = () => {
 
             {/* What's Included */}
             <div className="space-y-3">
-              <h3 className="font-editorial text-xl text-white font-normal">
+              <h3 className="font-bold text-xl text-slate-900 tracking-tight">
                 What's Included in This Download
               </h3>
               <div className="space-y-2">
                 {product.includes.map((inc, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5 text-xs text-zinc-300">
-                    <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+                  <div key={idx} className="flex items-center gap-2.5 text-xs text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-[#7388a5] shrink-0" />
                     <span>{inc}</span>
                   </div>
                 ))}
@@ -267,22 +267,22 @@ export const ProductDetails: React.FC = () => {
             </div>
 
             {/* Technical Specs */}
-            <div className="p-4 rounded-2xl bg-[#10121a] border border-[#202434] grid grid-cols-2 gap-3 text-xs">
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 grid grid-cols-2 gap-3 text-xs">
               <div>
-                <span className="text-zinc-500 block text-[10px] uppercase">Format</span>
-                <span className="text-zinc-200 font-medium">{product.fileFormat}</span>
+                <span className="text-slate-400 block text-[10px] uppercase font-semibold">Format</span>
+                <span className="text-slate-800 font-medium">{product.fileFormat}</span>
               </div>
               <div>
-                <span className="text-zinc-500 block text-[10px] uppercase">Download Size</span>
-                <span className="text-zinc-200 font-medium">{product.fileSize}</span>
+                <span className="text-slate-400 block text-[10px] uppercase font-semibold">Download Size</span>
+                <span className="text-slate-800 font-medium">{product.fileSize}</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Related Products */}
-        <section className="pt-16 border-t border-[#1d212d]">
-          <h3 className="font-editorial text-2xl text-white font-normal mb-8">
+        <section className="pt-16 border-t border-slate-200">
+          <h3 className="font-bold text-2xl text-slate-900 tracking-tight mb-8">
             You May Also Enjoy
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

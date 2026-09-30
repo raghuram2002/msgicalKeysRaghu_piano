@@ -42,7 +42,7 @@ export default function App() {
           <WishlistProvider>
             <RecentlyViewedProvider>
               <ScrollToTop />
-              <div className="flex flex-col min-h-screen bg-[#0b0c10] text-[#e5e7eb] selection:bg-amber-500 selection:text-zinc-950 font-sans antialiased">
+              <div className="flex flex-col min-h-screen bg-white text-slate-800 selection:bg-[#8598b0]/25 selection:text-slate-900 font-sans antialiased">
                 <Header />
                 <main className="flex-grow">
                   <Routes>

@@ -40,36 +40,36 @@ export const PreviewVideoModal: React.FC<PreviewVideoModalProps> = ({
   return (
     <div
       id="preview-video-modal-backdrop"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-xs"
       onClick={onClose}
     >
       <div
         id="preview-video-modal-container"
-        className="w-full max-w-4xl bg-[#11131a] border border-[#262b3a] rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+        className="w-full max-w-4xl bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-3.5 border-b border-[#212533] bg-[#0e0f15]">
+        <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-200 bg-slate-50">
           <div className="flex items-center gap-2.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-xs uppercase tracking-wider font-semibold text-emerald-400">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-xs uppercase tracking-wider font-semibold text-emerald-700">
               Free Sample Lesson Preview
             </span>
-            <span className="text-zinc-600">|</span>
-            <span className="text-xs text-zinc-400 truncate max-w-xs sm:max-w-md">
+            <span className="text-slate-300">|</span>
+            <span className="text-xs text-slate-600 truncate max-w-xs sm:max-w-md">
               {course.title}
             </span>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 text-zinc-400 hover:text-white rounded-lg hover:bg-zinc-800 transition-colors"
+            className="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Video Canvas & Controls */}
-        <div className="relative aspect-video w-full bg-black flex items-center justify-center overflow-hidden group">
+        <div className="relative aspect-video w-full bg-slate-950 flex items-center justify-center overflow-hidden group">
           <img
             src={course.thumbnail}
             alt={course.title}
@@ -83,14 +83,14 @@ export const PreviewVideoModal: React.FC<PreviewVideoModalProps> = ({
           <div className="relative z-10 flex flex-col items-center text-center p-6 max-w-lg">
             <button
               onClick={() => setIsPlaying(!isPlaying)}
-              className="w-16 h-16 rounded-full bg-amber-500 hover:bg-amber-400 text-zinc-950 flex items-center justify-center shadow-xl shadow-amber-500/20 transform hover:scale-110 transition-all mb-4 cursor-pointer"
+              className="w-16 h-16 rounded-full bg-[#7388a5] hover:bg-[#5f7491] text-white flex items-center justify-center shadow-xl shadow-black/30 transform hover:scale-110 transition-all mb-4 cursor-pointer"
             >
               {isPlaying ? <Pause className="w-7 h-7" /> : <Play className="w-7 h-7 ml-1" />}
             </button>
-            <h3 className="font-serif text-xl sm:text-2xl text-white font-normal mb-1 drop-shadow-md">
+            <h3 className="text-xl sm:text-2xl text-white font-semibold mb-1 drop-shadow-md">
               {currentLesson.title}
             </h3>
-            <p className="text-xs text-zinc-300 drop-shadow">
+            <p className="text-xs text-slate-200 drop-shadow">
               With {course.instructor.name} · {currentLesson.duration} Free Preview
             </p>
           </div>
@@ -100,34 +100,34 @@ export const PreviewVideoModal: React.FC<PreviewVideoModalProps> = ({
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
-                className="text-white hover:text-amber-400 transition-colors"
+                className="text-white hover:text-slate-300 transition-colors cursor-pointer"
               >
                 {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
               </button>
               <button
                 onClick={() => setIsMuted(!isMuted)}
-                className="text-white hover:text-amber-400 transition-colors"
+                className="text-white hover:text-slate-300 transition-colors cursor-pointer"
               >
                 {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
               </button>
-              <span className="text-xs text-zinc-300 font-mono">01:45 / {currentLesson.duration}</span>
+              <span className="text-xs text-slate-300 font-mono">01:45 / {currentLesson.duration}</span>
             </div>
 
             {/* Fake progress bar */}
-            <div className="flex-1 max-w-md h-1.5 bg-zinc-700/60 rounded-full overflow-hidden cursor-pointer">
-              <div className="h-full bg-amber-400 w-2/5 rounded-full" />
+            <div className="flex-1 max-w-md h-1.5 bg-slate-700/60 rounded-full overflow-hidden cursor-pointer">
+              <div className="h-full bg-[#8598b0] w-2/5 rounded-full" />
             </div>
 
-            <span className="text-xs px-2 py-0.5 rounded bg-zinc-800/80 text-amber-300 border border-zinc-700">
+            <span className="text-xs px-2 py-0.5 rounded bg-black/60 text-slate-200 border border-slate-700">
               1080p HD
             </span>
           </div>
         </div>
 
         {/* Free Preview Lessons Selector + Course CTA */}
-        <div className="p-5 bg-[#0d0e13] flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#222634]">
+        <div className="p-5 bg-slate-50 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-200">
           <div className="w-full sm:w-auto">
-            <span className="text-[11px] uppercase tracking-wider font-semibold text-zinc-400 block mb-1.5">
+            <span className="text-[11px] uppercase tracking-wider font-semibold text-slate-500 block mb-1.5">
               Available Free Previews ({previewLessons.length})
             </span>
             <div className="flex flex-wrap gap-2">
@@ -135,13 +135,13 @@ export const PreviewVideoModal: React.FC<PreviewVideoModalProps> = ({
                 <button
                   key={lesson.id}
                   onClick={() => setActiveLessonIndex(idx)}
-                  className={`text-xs px-3 py-1.5 rounded-lg border flex items-center gap-1.5 transition-colors ${
+                  className={`text-xs px-3 py-1.5 rounded-lg border flex items-center gap-1.5 transition-colors cursor-pointer ${
                     activeLessonIndex === idx
-                      ? 'bg-amber-500/20 text-amber-300 border-amber-500/50'
-                      : 'bg-[#161822] text-zinc-400 hover:text-zinc-200 border-[#2b3040]'
+                      ? 'bg-[#eef3f9] text-[#475e7d] border-[#cbd8e8] font-semibold'
+                      : 'bg-white text-slate-600 hover:text-slate-900 border-slate-200'
                   }`}
                 >
-                  <CheckCircle className="w-3 h-3 text-emerald-400" />
+                  <CheckCircle className="w-3 h-3 text-emerald-600" />
                   <span className="truncate max-w-[140px]">{lesson.title.split(':')[0]}</span>
                 </button>
               ))}
@@ -150,12 +150,12 @@ export const PreviewVideoModal: React.FC<PreviewVideoModalProps> = ({
 
           <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
             <div className="text-right hidden md:block">
-              <span className="text-xs text-zinc-400 block">Full Course Access</span>
-              <span className="text-base font-bold text-amber-400">${course.price}</span>
+              <span className="text-xs text-slate-400 block">Full Course Access</span>
+              <span className="text-base font-bold text-slate-900">${course.price}</span>
             </div>
             <button
               onClick={handleEnrollClick}
-              className="flex items-center justify-center gap-2 px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-semibold text-sm rounded-xl transition-colors cursor-pointer w-full sm:w-auto"
+              className="flex items-center justify-center gap-2 px-5 py-2.5 bg-[#7388a5] hover:bg-[#5f7491] text-white font-medium text-sm rounded-xl transition-colors cursor-pointer w-full sm:w-auto shadow-xs"
             >
               <span>Enroll to Unlock All Lessons</span>
               <ArrowRight className="w-4 h-4" />

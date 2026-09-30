@@ -45,99 +45,93 @@ export const Register: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b0c10] text-[#e5e7eb] pt-28 pb-20 flex items-center justify-center px-4">
-      <div className="w-full max-w-md bg-[#12141c] border border-[#232838] rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+    <div className="min-h-screen bg-white text-slate-800 pt-28 pb-20 flex items-center justify-center px-4">
+      <div className="w-full max-w-md bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
         <div className="text-center space-y-2">
-          <Link to="/" className="inline-flex items-center gap-2">
-            <img src={magicalKeysLogo} alt="logo" className="w-15 h-15" />
-            <div className="flex flex-col items-start">
-              <span className="font-editorial text-xl tracking-wider text-white">
-                MAGICAL KEYS
-              </span>
-              <span className="hidden sm:block text-[9px] uppercase tracking-[0.25em] text-zinc-400 font-medium leading-none">
-                Raghu
-              </span>
-            </div>
+          <Link to="/" className="inline-block">
+            <span className="text-2xl font-bold tracking-tight text-[#637894]">
+              Signal House
+            </span>
           </Link>
-          <h1 className="font-editorial text-2xl text-white font-normal">
+          <h1 className="font-bold text-2xl text-slate-900 tracking-tight">
             Create Student Account
           </h1>
-          <p className="text-xs text-zinc-400">
-            Join 1,000+ passionate students learning piano and guitar at Magical Keys Raghu.
+          <p className="text-xs text-slate-600">
+            Join 1,000+ passionate students learning piano and guitar at Signal House.
           </p>
         </div>
 
         {error && (
-          <div className="p-3 rounded-xl bg-rose-950/50 border border-rose-500/50 text-rose-300 text-xs text-center">
+          <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs text-center font-medium">
             {error}
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="text-xs text-zinc-400 block mb-1 font-medium">
+            <label className="text-xs text-slate-600 block mb-1 font-medium">
               Full Name
             </label>
             <div className="relative">
-              <User className="w-4 h-4 text-zinc-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 required
                 placeholder="e.g. Julian Hayes"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 bg-[#0e1016] border border-[#272c3d] rounded-xl text-xs sm:text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500"
+                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#7388a5] focus:bg-white transition-colors"
               />
             </div>
           </div>
 
           <div>
-            <label className="text-xs text-zinc-400 block mb-1 font-medium">
+            <label className="text-xs text-slate-600 block mb-1 font-medium">
               Email Address
             </label>
             <div className="relative">
-              <Mail className="w-4 h-4 text-zinc-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="email"
                 required
                 placeholder="julian@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 bg-[#0e1016] border border-[#272c3d] rounded-xl text-xs sm:text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500"
+                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#7388a5] focus:bg-white transition-colors"
               />
             </div>
           </div>
 
           <div>
-            <label className="text-xs text-zinc-400 block mb-1 font-medium">
+            <label className="text-xs text-slate-600 block mb-1 font-medium">
               Password
             </label>
             <div className="relative">
-              <Lock className="w-4 h-4 text-zinc-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="password"
                 required
                 placeholder="Minimum 6 characters"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 bg-[#0e1016] border border-[#272c3d] rounded-xl text-xs sm:text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500"
+                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#7388a5] focus:bg-white transition-colors"
               />
             </div>
           </div>
 
           <div>
-            <label className="text-xs text-zinc-400 block mb-1 font-medium">
+            <label className="text-xs text-slate-600 block mb-1 font-medium">
               Confirm Password
             </label>
             <div className="relative">
-              <Lock className="w-4 h-4 text-zinc-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="password"
                 required
                 placeholder="Repeat your password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 bg-[#0e1016] border border-[#272c3d] rounded-xl text-xs sm:text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500"
+                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#7388a5] focus:bg-white transition-colors"
               />
             </div>
           </div>
@@ -145,10 +139,10 @@ export const Register: React.FC = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-3 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-semibold text-xs sm:text-sm rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-amber-500/15 cursor-pointer disabled:opacity-60"
+            className="w-full py-3 bg-[#7388a5] hover:bg-[#5f7491] text-white font-semibold text-xs sm:text-sm rounded-xl flex items-center justify-center gap-2 transition-all shadow-xs cursor-pointer disabled:opacity-60"
           >
             {isLoading ? (
-              <div className="w-4 h-4 border-2 border-zinc-950 border-t-transparent rounded-full animate-spin" />
+              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
             ) : (
               <>
                 <span>Create Student Account</span>
@@ -158,10 +152,10 @@ export const Register: React.FC = () => {
           </button>
         </form>
 
-        <div className="text-center pt-2 border-t border-[#1e2230]">
-          <p className="text-xs text-zinc-400">
+        <div className="text-center pt-2 border-t border-slate-100">
+          <p className="text-xs text-slate-500">
             Already have an account?{' '}
-            <Link to="/login" className="font-semibold text-amber-400 hover:underline">
+            <Link to="/login" className="font-semibold text-[#7388a5] hover:underline">
               Sign In
             </Link>
           </p>

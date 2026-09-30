@@ -71,18 +71,18 @@ export const Courses: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b0c10] text-[#e5e7eb] pt-28 pb-24">
+    <div className="min-h-screen bg-white text-slate-800 pt-24 pb-24">
       {/* Top Banner */}
-      <div className="border-b border-[#1d212e] bg-[#0e1017] py-12">
+      <div className="border-b border-slate-200 bg-slate-50 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl space-y-2">
-            <span className="text-xs uppercase tracking-widest font-semibold text-amber-400/90 flex items-center gap-1.5">
+            <span className="text-xs uppercase tracking-widest font-semibold text-[#7388a5] flex items-center gap-1.5">
               <Music className="w-3.5 h-3.5" /> Academy Course Catalog
             </span>
-            <h1 className="font-editorial text-3xl sm:text-4xl text-white font-normal">
+            <h1 className="text-3xl sm:text-4xl text-slate-900 font-bold">
               Learn. Practice. Play.
             </h1>
-            <p className="text-xs sm:text-sm text-zinc-400">
+            <p className="text-xs sm:text-sm text-slate-600">
               Browse our complete library of structured piano and guitar masterclasses, step-by-step song curricula, and Indian melody blueprints.
             </p>
           </div>
@@ -91,17 +91,17 @@ export const Courses: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         {/* Search & Filter Bar */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-[#12141c] border border-[#212634] shadow-xl mb-8 space-y-4">
+        <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200 shadow-sm mb-8 space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
             {/* Search input */}
             <div className="md:col-span-6 relative">
-              <Search className="w-4 h-4 text-zinc-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 placeholder="Search by title, instructor, or technique..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 bg-[#0e1016] border border-[#282d3d] rounded-xl text-xs sm:text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500"
+                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#7388a5]"
               />
             </div>
 
@@ -110,7 +110,7 @@ export const Courses: React.FC = () => {
               <select
                 value={selectedLevel}
                 onChange={(e) => setSelectedLevel(e.target.value)}
-                className="w-full py-2.5 px-3 bg-[#0e1016] border border-[#282d3d] rounded-xl text-xs sm:text-sm text-zinc-300 focus:outline-none focus:border-amber-500"
+                className="w-full py-2.5 px-3 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-700 focus:outline-none focus:border-[#7388a5]"
               >
                 <option value="All">All Skill Levels</option>
                 <option value="Beginner">Beginner Only</option>
@@ -124,7 +124,7 @@ export const Courses: React.FC = () => {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="w-full py-2.5 px-3 bg-[#0e1016] border border-[#282d3d] rounded-xl text-xs sm:text-sm text-zinc-300 focus:outline-none focus:border-amber-500"
+                className="w-full py-2.5 px-3 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-700 focus:outline-none focus:border-[#7388a5]"
               >
                 {sortOptions.map((opt) => (
                   <option key={opt} value={opt}>
@@ -136,17 +136,17 @@ export const Courses: React.FC = () => {
           </div>
 
           {/* Category Chips & Price Filter */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[#1d212d]">
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100">
             <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-xs text-zinc-500 mr-1 hidden sm:inline">Category:</span>
+              <span className="text-xs text-slate-500 mr-1 hidden sm:inline">Category:</span>
               {categories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
                     selectedCategory === cat
-                      ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
-                      : 'bg-[#181a24] text-zinc-400 hover:text-white border border-[#262a38]'
+                      ? 'bg-[#eef3f9] text-[#475e7d] border border-[#cbd8e8] font-semibold'
+                      : 'bg-slate-100 text-slate-600 hover:text-slate-900 border border-slate-200'
                   }`}
                 >
                   {cat}
@@ -155,11 +155,11 @@ export const Courses: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-2 text-xs">
-              <span className="text-zinc-500">Price:</span>
+              <span className="text-slate-500">Price:</span>
               <select
                 value={priceRange}
                 onChange={(e) => setPriceRange(e.target.value)}
-                className="bg-[#181a24] border border-[#262a38] rounded-lg px-2.5 py-1 text-xs text-zinc-300 focus:outline-none"
+                className="bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1 text-xs text-slate-700 focus:outline-none"
               >
                 <option value="All">All Prices</option>
                 <option value="under70">Under $70</option>
@@ -170,7 +170,7 @@ export const Courses: React.FC = () => {
               {(searchQuery || selectedCategory !== 'All' || selectedLevel !== 'All' || priceRange !== 'All') && (
                 <button
                   onClick={handleResetFilters}
-                  className="flex items-center gap-1 text-zinc-400 hover:text-amber-400 transition-colors ml-2"
+                  className="flex items-center gap-1 text-slate-500 hover:text-slate-800 transition-colors ml-2 cursor-pointer"
                   title="Reset all filters"
                 >
                   <RotateCcw className="w-3 h-3" />
@@ -182,26 +182,26 @@ export const Courses: React.FC = () => {
         </div>
 
         {/* Results Counter */}
-        <div className="flex items-center justify-between mb-6 text-xs text-zinc-400">
+        <div className="flex items-center justify-between mb-6 text-xs text-slate-500">
           <p>
-            Showing <span className="font-semibold text-white">{filteredCourses.length}</span> courses
+            Showing <span className="font-semibold text-slate-800">{filteredCourses.length}</span> courses
             {selectedCategory !== 'All' && <span> in "{selectedCategory}"</span>}
           </p>
         </div>
 
         {/* Course Grid or Empty State */}
         {filteredCourses.length === 0 ? (
-          <div className="p-16 rounded-2xl bg-[#12141c] border border-[#222634] text-center space-y-4 max-w-lg mx-auto my-8">
-            <div className="w-14 h-14 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-500 mx-auto">
+          <div className="p-16 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-4 max-w-lg mx-auto my-8">
+            <div className="w-14 h-14 rounded-full bg-slate-200 flex items-center justify-center text-slate-400 mx-auto">
               <Music className="w-6 h-6" />
             </div>
-            <h3 className="text-base font-semibold text-white">No courses match your filters</h3>
-            <p className="text-xs text-zinc-400 leading-relaxed">
+            <h3 className="text-base font-semibold text-slate-800">No courses match your filters</h3>
+            <p className="text-xs text-slate-500 leading-relaxed">
               We couldn't find any courses matching your specific criteria. Try resetting the filters or searching for terms like "piano", "guitar", or "chords".
             </p>
             <button
               onClick={handleResetFilters}
-              className="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-semibold text-xs rounded-xl transition-colors cursor-pointer"
+              className="px-5 py-2.5 bg-[#7388a5] hover:bg-[#5f7491] text-white font-medium text-xs rounded-xl transition-colors cursor-pointer shadow-xs"
             >
               Reset Filters
             </button>

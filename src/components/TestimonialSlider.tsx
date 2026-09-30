@@ -25,8 +25,8 @@ export const TestimonialSlider: React.FC = () => {
 
   return (
     <div className="relative max-w-4xl mx-auto" id="testimonials-slider">
-      <div className="bg-gradient-to-br from-[#12141d] to-[#0e1017] border border-[#222736] rounded-3xl p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl">
-        <Quote className="absolute top-6 right-8 w-20 h-20 text-amber-500/10 pointer-events-none" />
+      <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-lg">
+        <Quote className="absolute top-6 right-8 w-24 h-24 text-slate-100 pointer-events-none" />
 
         <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
           {/* Avatar and details */}
@@ -35,16 +35,16 @@ export const TestimonialSlider: React.FC = () => {
               <img
                 src={current.avatar}
                 alt={current.name}
-                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-2 border-amber-400/40 shadow-lg"
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-2 border-slate-200 shadow-md"
               />
-              <div className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-[#0b0c10] border border-amber-500/40 flex items-center justify-center text-amber-400">
+              <div className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center text-[#7388a5] shadow-xs">
                 <Quote className="w-3.5 h-3.5" />
               </div>
             </div>
-            <h4 className="font-editorial text-lg text-white font-normal">
+            <h4 className="text-base sm:text-lg font-semibold text-slate-900">
               {current.name}
             </h4>
-            <p className="text-xs text-zinc-400 max-w-[170px]">{current.role}</p>
+            <p className="text-xs text-slate-500 max-w-[170px]">{current.role}</p>
             <div className="mt-2">
               <Rating rating={current.rating} size="sm" showCount={false} />
             </div>
@@ -52,17 +52,17 @@ export const TestimonialSlider: React.FC = () => {
 
           {/* Quote Content */}
           <div className="flex-1 space-y-4 text-center md:text-left">
-            <div className="inline-block px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-[11px] font-medium text-amber-300">
+            <div className="inline-block px-3 py-1 rounded-full bg-[#eef3f9] border border-[#cbd8e8] text-[11px] font-medium text-[#475e7d]">
               {current.highlight}
             </div>
 
-            <p className="text-base sm:text-lg text-zinc-200 leading-relaxed font-serif italic">
+            <p className="text-base sm:text-lg text-slate-700 leading-relaxed italic">
               "{current.quote}"
             </p>
 
             <div className="pt-2">
-              <span className="text-xs text-zinc-500 block">Enrolled Course:</span>
-              <span className="text-xs font-semibold text-zinc-300">
+              <span className="text-xs text-slate-400 block">Enrolled Course:</span>
+              <span className="text-xs font-semibold text-slate-800">
                 {current.courseTaken}
               </span>
             </div>
@@ -70,14 +70,14 @@ export const TestimonialSlider: React.FC = () => {
         </div>
 
         {/* Carousel Navigation Buttons & Dots */}
-        <div className="flex items-center justify-between mt-8 pt-6 border-t border-[#1d222f]">
+        <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100">
           <div className="flex items-center gap-2">
             {testimonials.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className={`h-1.5 rounded-full transition-all ${
-                  currentIndex === idx ? 'w-8 bg-amber-400' : 'w-2 bg-zinc-700 hover:bg-zinc-500'
+                className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                  currentIndex === idx ? 'w-8 bg-[#7388a5]' : 'w-2 bg-slate-200 hover:bg-slate-300'
                 }`}
                 title={`Go to slide ${idx + 1}`}
               />
@@ -87,14 +87,14 @@ export const TestimonialSlider: React.FC = () => {
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrev}
-              className="p-2 rounded-xl bg-[#171a24] hover:bg-[#202534] text-zinc-300 hover:text-white border border-[#2b3142] transition-colors"
+              className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition-colors cursor-pointer"
               title="Previous testimonial"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={handleNext}
-              className="p-2 rounded-xl bg-[#171a24] hover:bg-[#202534] text-zinc-300 hover:text-white border border-[#2b3142] transition-colors"
+              className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition-colors cursor-pointer"
               title="Next testimonial"
             >
               <ChevronRight className="w-4 h-4" />

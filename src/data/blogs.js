@@ -7,7 +7,7 @@ export const blogs = [
     category: 'Piano',
     date: 'March 14, 2026',
     readTime: '6 min read',
-    coverImage: 'https://images.unsplash.com/photo-1520523839898-507127053e14?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=1200&q=80',
     author: {
       name: 'Julian Vance',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',

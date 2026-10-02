@@ -122,11 +122,11 @@ export const CartDrawer = () => {
                   <div className="flex items-center justify-between mt-2">
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-bold text-slate-900">
-                        ${item.price}
+                        ₹{item.price}
                       </span>
                       {item.originalPrice && (
                         <span className="text-xs line-through text-slate-400">
-                          ${item.originalPrice}
+                          ₹{item.originalPrice}
                         </span>
                       )}
                     </div>
@@ -187,7 +187,7 @@ export const CartDrawer = () => {
               </form>
               {couponApplied && (
                 <p className="text-[11px] text-emerald-700 mt-1 flex items-center gap-1">
-                  <Check className="w-3 h-3" /> 20% Discount applied! Saved ${couponDiscount}.
+                  <Check className="w-3 h-3" /> 20% Discount applied! Saved ₹{couponDiscount}.
                 </p>
               )}
             </div>
@@ -200,23 +200,23 @@ export const CartDrawer = () => {
             <div className="space-y-1.5 text-xs text-slate-600">
               <div className="flex justify-between">
                 <span>Original Value</span>
-                <span className="line-through text-slate-400">${originalTotal}</span>
+                <span className="line-through text-slate-400">₹{originalTotal}</span>
               </div>
               {savingsTotal > 0 && (
                 <div className="flex justify-between text-emerald-700 font-medium">
                   <span>Academy Bundle Savings</span>
-                  <span>-${savingsTotal}</span>
+                  <span>-₹{savingsTotal}</span>
                 </div>
               )}
               {couponDiscount > 0 && (
                 <div className="flex justify-between text-[#475e7d] font-medium">
                   <span>Coupon Discount</span>
-                  <span>-${couponDiscount}</span>
+                  <span>-₹{couponDiscount}</span>
                 </div>
               )}
               <div className="flex justify-between text-sm font-semibold text-slate-900 pt-2 border-t border-slate-200">
                 <span>Total Amount</span>
-                <span className="text-[#3a5273] text-lg font-bold">${finalTotal}</span>
+                <span className="text-[#3a5273] text-lg font-bold">₹{finalTotal}</span>
               </div>
             </div>
 

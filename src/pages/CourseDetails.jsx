@@ -183,11 +183,11 @@ export const CourseDetails = () => {
                   <div className="flex items-baseline justify-between">
                     <div className="flex items-baseline gap-2.5">
                       <span className="text-3xl font-bold text-slate-900">
-                        ${course.price}
+                        ₹{course.price}
                       </span>
                       {course.originalPrice && (
                         <span className="text-base line-through text-slate-400">
-                          ${course.originalPrice}
+                          ₹{course.originalPrice}
                         </span>
                       )}
                       {discountPercent > 0 && (

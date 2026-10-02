@@ -18,7 +18,7 @@ import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 import { SearchModal } from './SearchModal';
 import { CartDrawer } from './CartDrawer';
-const magicalKeysLogo = '/images/magicalKeysLogo.png';
+const magicalKeysLogo = '/images/webLogo.png';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -67,10 +67,10 @@ export const Header = () => {
             <img src={magicalKeysLogo} alt="logo" className="w-10 h-10 object-contain rounded-lg" />
             <div className="flex flex-col">
               <span className="font-bold text-lg sm:text-xl tracking-tight text-[#637894] group-hover:text-slate-900 transition-colors">
-                Signal House
+                Magical Keys
               </span>
               <span className="text-[9px] uppercase tracking-[0.2em] text-slate-400 font-medium leading-none">
-                Magical Keys
+                Raghu
               </span>
             </div>
           </Link>
@@ -97,7 +97,7 @@ export const Header = () => {
                 }`
               }
             >
-              Piano
+              Courses
             </NavLink>
             <NavLink
               to="/store"
@@ -108,7 +108,7 @@ export const Header = () => {
                 }`
               }
             >
-              Presentation
+              Store
             </NavLink>
             <NavLink
               to="/blogs"

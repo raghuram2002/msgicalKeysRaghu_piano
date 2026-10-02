@@ -176,7 +176,7 @@ export const SearchModal = ({ isOpen, onClose }) => {
                           </p>
                         </div>
                         <span className="text-sm font-bold text-slate-900 shrink-0">
-                          ${course.price}
+                          ₹{course.price}
                         </span>
                         <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#475e7d] shrink-0 group-hover:translate-x-0.5 transition-transform" />
                       </div>
@@ -212,7 +212,7 @@ export const SearchModal = ({ isOpen, onClose }) => {
                           </p>
                         </div>
                         <span className="text-sm font-bold text-slate-900 shrink-0">
-                          ${prod.price}
+                          ₹{prod.price}
                         </span>
                         <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#475e7d] shrink-0 group-hover:translate-x-0.5 transition-transform" />
                       </div>

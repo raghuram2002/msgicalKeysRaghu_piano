@@ -187,11 +187,11 @@ export const ProductDetails = () => {
             <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-4 shadow-xs">
               <div className="flex items-baseline gap-3">
                 <span className="text-3xl font-bold text-slate-900">
-                  ${product.price}
+                  ₹{product.price}
                 </span>
                 {product.originalPrice && (
                   <span className="text-base line-through text-slate-400">
-                    ${product.originalPrice}
+                    ₹{product.originalPrice}
                   </span>
                 )}
                 <span className="text-xs text-emerald-700 font-semibold px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200">

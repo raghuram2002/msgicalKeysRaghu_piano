@@ -144,7 +144,7 @@ export const PreviewVideoModal = ({
           <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
             <div className="text-right hidden md:block">
               <span className="text-xs text-slate-400 block">Full Course Access</span>
-              <span className="text-base font-bold text-slate-900">${course.price}</span>
+              <span className="text-base font-bold text-slate-900">₹{course.price}</span>
             </div>
             <button
               onClick={handleEnrollClick}

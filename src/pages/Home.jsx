@@ -54,7 +54,7 @@ export const Home = () => {
       title: 'Modern Piano Covers',
       genre: 'Adele, Coldplay, Ludovico Einaudi',
       count: '24 Arrangements',
-      image: 'https://images.unsplash.com/photo-1520523839898-507127053e14?auto=format&fit=crop&w=600&q=80',
+      image: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=600&q=80',
       link: '/courses/learn-piano-through-songs'
     },
     {
@@ -144,10 +144,10 @@ export const Home = () => {
               {/* Subtext matching screenshot */}
               <div className="space-y-4 max-w-lg">
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                  Unlock the art of expressive piano with intuitive, song-first mastery. Develop natural touch, rich harmonic voicings, and effortless hand independence through clear, step-by-step guidance.
                 </p>
                 <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-                  Master piano and guitar through practical lessons, structured courses, and song-based learning designed for real musicians.
+                  From timeless Bollywood melodies and soulful raags to modern Western classics, master piano and guitar with structured courses designed for real musicians.
                 </p>
               </div>
 
@@ -162,7 +162,7 @@ export const Home = () => {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 
-                <button
+                {/* <button
                   onClick={() => setSelectedPreviewCourse(courses[0])}
                   id="hero-free-preview-cta"
                   className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 font-medium text-sm flex items-center justify-center gap-2.5 transition-all cursor-pointer shadow-2xs"
@@ -171,16 +171,20 @@ export const Home = () => {
                     <Play className="w-2.5 h-2.5 ml-0.5 fill-[#546b89]" />
                   </div>
                   <span>Watch Free Lesson</span>
-                </button>
+                </button> */}
+
+                <Link
+                  to="/store"
+                  id="hero-explore-store-cta"
+                  className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 font-medium text-sm flex items-center justify-center gap-2.5 transition-all cursor-pointer shadow-2xs"
+                >
+                  <span>Explore Store</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
 
               {/* Quick trust pills */}
               <div className="flex flex-wrap items-center gap-3 pt-2 text-xs text-slate-500">
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                  <span>30-Day Money-Back</span>
-                </div>
-                <span>·</span>
                 <div className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                   <span>Lifetime Access</span>

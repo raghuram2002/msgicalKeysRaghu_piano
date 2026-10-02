@@ -242,7 +242,7 @@ export const Dashboard = () => {
                         {item.category}
                       </span>
                       <span className="text-xs font-bold text-slate-900 block mt-1">
-                        ${item.price}
+                        ₹{item.price}
                       </span>
                     </div>
 

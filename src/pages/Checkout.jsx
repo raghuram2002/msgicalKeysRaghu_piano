@@ -143,7 +143,7 @@ export const Checkout = () => {
             </div>
             <div className="flex justify-between">
               <span>Amount Paid:</span>
-              <span className="text-emerald-700 font-bold">${finalTotal}</span>
+              <span className="text-emerald-700 font-bold">₹{finalTotal}</span>
             </div>
           </div>
 
@@ -335,7 +335,7 @@ export const Checkout = () => {
                       </span>
                     </div>
                     <span className="text-xs font-bold text-slate-900">
-                      ${item.price}
+                      ₹{item.price}
                     </span>
                   </div>
                 ))}
@@ -376,17 +376,17 @@ export const Checkout = () => {
               <div className="pt-4 border-t border-slate-100 space-y-2 text-xs">
                 <div className="flex justify-between text-slate-500">
                   <span>Subtotal</span>
-                  <span>${checkoutSubtotal}</span>
+                  <span>₹{checkoutSubtotal}</span>
                 </div>
                 {checkoutDiscount > 0 && (
                   <div className="flex justify-between text-emerald-700 font-medium">
                     <span>Discount</span>
-                    <span>-${checkoutDiscount}</span>
+                    <span>-₹{checkoutDiscount}</span>
                   </div>
                 )}
                 <div className="flex justify-between text-base font-bold text-slate-900 pt-2 border-t border-slate-100">
                   <span>Total Due</span>
-                  <span className="text-slate-900">${finalTotal}</span>
+                  <span className="text-slate-900">₹{finalTotal}</span>
                 </div>
               </div>
 
@@ -405,7 +405,7 @@ export const Checkout = () => {
                   </>
                 ) : (
                   <>
-                    <span>Pay ${finalTotal} & Unlock Instant Access</span>
+                    <span>Pay ₹{finalTotal} & Unlock Instant Access</span>
                     <ArrowRight className="w-4 h-4" />
                   </>
                 )}

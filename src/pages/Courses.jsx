@@ -161,9 +161,9 @@ export const Courses = () => {
                 className="bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1 text-xs text-slate-700 focus:outline-none"
               >
                 <option value="All">All Prices</option>
-                <option value="under70">Under $70</option>
-                <option value="70to90">$70 - $90</option>
-                <option value="over90">$90+</option>
+                <option value="under70">Under ₹70</option>
+                <option value="70to90">₹70 - ₹90</option>
+                <option value="over90">₹90+</option>
               </select>
 
               {(searchQuery || selectedCategory !== 'All' || selectedLevel !== 'All' || priceRange !== 'All') && (

@@ -126,11 +126,11 @@ export const CourseCard = ({ course, onPreviewClick }) => {
           <div className="flex items-center justify-between gap-2 pt-1">
             <div className="flex items-baseline gap-2">
               <span className="text-xl font-bold text-slate-900">
-                ${course.price}
+                ₹{course.price}
               </span>
               {course.originalPrice && (
                 <span className="text-xs line-through text-slate-400">
-                  ${course.originalPrice}
+                  ₹{course.originalPrice}
                 </span>
               )}
               {discountPercent > 0 && (

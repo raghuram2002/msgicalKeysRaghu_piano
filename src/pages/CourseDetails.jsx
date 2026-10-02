@@ -14,7 +14,10 @@ import {
   Share2,
   ShieldCheck,
   ArrowRight,
-  HelpCircle
+  HelpCircle,
+  FileText,
+  Music,
+  Image as ImageIcon
 } from 'lucide-react';
 import { courses } from '../data/courses';
 import { faqs } from '../data/faqs';
@@ -379,29 +382,64 @@ export const CourseDetails = () => {
                           {mod.lessons.map((lesson) => (
                             <div
                               key={lesson.id}
-                              className="py-3 flex items-center justify-between text-xs gap-3"
+                              className="py-3 flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-2.5"
                             >
-                              <div className="flex items-center gap-3 min-w-0">
-                                {lesson.isFreePreview ? (
-                                  <PlayCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                                ) : (
-                                  <Lock className="w-4 h-4 text-slate-400 shrink-0" />
+                              <div className="space-y-1 min-w-0">
+                                <div className="flex items-center gap-2.5">
+                                  {lesson.isFreePreview ? (
+                                    <PlayCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                                  ) : (
+                                    <Lock className="w-4 h-4 text-slate-400 shrink-0" />
+                                  )}
+                                  <span className="text-slate-800 font-medium truncate">
+                                    {lesson.title}
+                                  </span>
+                                </div>
+
+                                {/* Attached learning materials indicator */}
+                                {lesson.resources && lesson.resources.length > 0 && (
+                                  <div className="flex flex-wrap items-center gap-1.5 ml-6.5 text-[10px]">
+                                    <span className="text-slate-400 font-medium">Materials:</span>
+                                    {lesson.resources.some((r) => r.type === 'PDF' || r.type === 'DOCUMENT') && (
+                                      <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-rose-50 text-rose-700 border border-rose-200">
+                                        <FileText className="w-2.5 h-2.5" /> PDF Notes
+                                      </span>
+                                    )}
+                                    {lesson.resources.some((r) => r.type === 'AUDIO') && (
+                                      <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                        <Music className="w-2.5 h-2.5" /> Audio Drill
+                                      </span>
+                                    )}
+                                    {lesson.resources.some((r) => r.type === 'IMAGE') && (
+                                      <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200">
+                                        <ImageIcon className="w-2.5 h-2.5" /> Diagram
+                                      </span>
+                                    )}
+                                  </div>
                                 )}
-                                <span className="text-slate-700 truncate">
-                                  {lesson.title}
-                                </span>
                               </div>
 
-                              <div className="flex items-center gap-3 shrink-0">
-                                {lesson.isFreePreview && (
+                              <div className="flex items-center gap-3 shrink-0 self-end sm:self-auto ml-6.5 sm:ml-0">
+                                {enrolled ? (
+                                  <button
+                                    onClick={() => navigate('/dashboard?tab=courses')}
+                                    className="px-2.5 py-1 rounded bg-[#eef3f9] hover:bg-[#dfeaf6] border border-[#cbd8e8] text-[#475e7d] font-semibold text-[10px] cursor-pointer transition-colors shadow-2xs"
+                                  >
+                                    Play Lesson
+                                  </button>
+                                ) : lesson.isFreePreview ? (
                                   <button
                                     onClick={() => setIsPreviewOpen(true)}
-                                    className="px-2 py-0.5 rounded bg-emerald-50 border border-emerald-300 text-emerald-700 font-semibold text-[10px] hover:bg-emerald-100 cursor-pointer"
+                                    className="px-2.5 py-1 rounded bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-700 font-semibold text-[10px] cursor-pointer transition-colors"
                                   >
-                                    Preview
+                                    Preview Lesson & Materials
                                   </button>
+                                ) : (
+                                  <span className="text-[10px] text-slate-400 font-medium flex items-center gap-1">
+                                    <Lock className="w-3 h-3 text-slate-400" /> Enrolled Only
+                                  </span>
                                 )}
-                                <span className="text-slate-400 font-mono">
+                                <span className="text-slate-400 font-mono text-[11px]">
                                   {lesson.duration}
                                 </span>
                               </div>

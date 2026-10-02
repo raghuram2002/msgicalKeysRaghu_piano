@@ -8,6 +8,7 @@ const DEMO_USER = {
   name: 'Alex Rivera',
   email: 'alex.rivera@example.com',
   avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
+  role: 'student',
   enrolledCourses: [
     {
       courseId: 'piano-fundamentals',
@@ -26,6 +27,17 @@ const DEMO_USER = {
   ],
   purchasedProductIds: ['jalsa-piano-tutorial'],
   joinedDate: 'February 2026'
+};
+
+const DEMO_ADMIN = {
+  id: 'usr_admin_001',
+  name: 'Raghu Admin',
+  email: 'admin@magicalkeys.com',
+  avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
+  role: 'admin',
+  enrolledCourses: [],
+  purchasedProductIds: [],
+  joinedDate: 'January 2026'
 };
 
 export const AuthProvider = ({ children }) => {
@@ -74,6 +86,15 @@ export const AuthProvider = ({ children }) => {
     setIsLoading(true);
     try {
       setUser(DEMO_USER);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const loginAsAdmin = async () => {
+    setIsLoading(true);
+    try {
+      setUser(DEMO_ADMIN);
     } finally {
       setIsLoading(false);
     }
@@ -144,10 +165,12 @@ export const AuthProvider = ({ children }) => {
       value={{
         user,
         isAuthenticated: !!user,
+        isAdmin: !!user && user.role === 'admin',
         isLoading,
         login,
         register,
         loginAsDemo,
+        loginAsAdmin,
         logout,
         enrollInCourse,
         enrollCourse: enrollInCourse,

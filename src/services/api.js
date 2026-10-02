@@ -4,6 +4,13 @@ import { products } from '../data/products';
 import { instructors } from '../data/instructors';
 import { faqs } from '../data/faqs';
 import { testimonials } from '../data/testimonials';
+import {
+  mockStudents,
+  mockEnrollments,
+  mockPayments,
+  mockVideos,
+  getAdminStats as calculateAdminStats
+} from '../data/adminData';
 
 // Simulated network latency helper
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -112,5 +119,31 @@ export const apiService = {
       success: true,
       transactionId: 'TXN-' + Math.random().toString(36).substring(2, 9).toUpperCase()
     };
+  },
+
+  // Admin APIs (protected in production)
+  async getAdminStats() {
+    await delay(100);
+    return calculateAdminStats();
+  },
+
+  async getAdminStudents() {
+    await delay(100);
+    return [...mockStudents];
+  },
+
+  async getAdminEnrollments() {
+    await delay(100);
+    return [...mockEnrollments];
+  },
+
+  async getAdminPayments() {
+    await delay(100);
+    return [...mockPayments];
+  },
+
+  async getAdminVideos() {
+    await delay(100);
+    return [...mockVideos];
   }
 };

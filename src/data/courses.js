@@ -1,6 +1,6 @@
 import { instructors } from './instructors';
 
-export const courses = [
+const rawCourses = [
   {
     id: 'piano-fundamentals',
     slug: 'piano-fundamentals-beginner-to-intermediate',
@@ -375,3 +375,105 @@ export const courses = [
     tags: ['Theory', 'Advanced', 'Harmony', 'Solo Performance']
   }
 ];
+
+// Enrich curriculum lessons with rich multi-format learning resources
+function enrichCurriculumWithResources(courseList) {
+  return courseList.map((course) => ({
+    ...course,
+    curriculum: (course.curriculum || []).map((mod) => ({
+      ...mod,
+      lessons: (mod.lessons || []).map((lesson) => {
+        const cleanTitle = lesson.title.replace(/^Lesson \d+:\s*/, '');
+        const slug = lesson.id;
+        const isFree = !!lesson.isFreePreview;
+
+        const defaultVideo = lesson.video || {
+          id: `vid_${slug}`,
+          title: lesson.title,
+          fileName: `${slug}-4k-lecture-video.mp4`,
+          fileSize: '820 MB',
+          duration: lesson.duration || '15:00',
+          resolution: '4K',
+          uploadStatus: 'ready',
+          access: isFree ? 'free_preview' : 'enrolled_only',
+          uploadedAt: '2026-02-15',
+          storageKey: `courses/${course.id}/videos/${slug}.mp4`,
+          storageProvider: 'cloudflare_stream'
+        };
+
+        const defaultResources = lesson.resources || [
+          {
+            id: `res_${slug}_pdf`,
+            title: `${cleanTitle} – Masterclass Notes`,
+            type: 'PDF',
+            category: 'notes',
+            fileName: `${slug}-masterclass-notes.pdf`,
+            fileSize: '4.2 MB',
+            mimeType: 'application/pdf',
+            description: `Official comprehensive printable lecture notes, harmonic theory, and practice recommendations for ${cleanTitle}.`,
+            uploadStatus: 'ready',
+            access: isFree ? 'free_preview' : 'enrolled_only',
+            uploadedAt: '2026-02-16',
+            storageKey: `courses/${course.id}/docs/${slug}-notes.pdf`,
+            storageProvider: 'aws_s3'
+          },
+          {
+            id: `res_${slug}_sheet`,
+            title: `${cleanTitle} – Practice Sheet Music`,
+            type: 'PDF',
+            category: 'practice_sheet',
+            fileName: `${slug}-sheet-music.pdf`,
+            fileSize: '2.8 MB',
+            mimeType: 'application/pdf',
+            description: `Engraved musical notation with fingering annotations, pedal markings, and tempo benchmarks.`,
+            uploadStatus: 'ready',
+            access: 'enrolled_only',
+            uploadedAt: '2026-02-16',
+            storageKey: `courses/${course.id}/docs/${slug}-sheet.pdf`,
+            storageProvider: 'aws_s3'
+          },
+          {
+            id: `res_${slug}_audio`,
+            title: `${cleanTitle} – Ear Training & Practice Audio`,
+            type: 'AUDIO',
+            category: 'audio',
+            fileName: `${slug}-audio-practice-stem.mp3`,
+            fileSize: '7.9 MB',
+            duration: '06:45',
+            mimeType: 'audio/mpeg',
+            description: `High-fidelity audio track recorded on Steinway D concert grand for pitch reference and play-along practice.`,
+            uploadStatus: 'ready',
+            access: 'enrolled_only',
+            uploadedAt: '2026-02-17',
+            storageKey: `courses/${course.id}/audio/${slug}-stem.mp3`,
+            storageProvider: 'aws_s3'
+          },
+          {
+            id: `res_${slug}_diagram`,
+            title: `${cleanTitle} – Key & Finger Placement Diagram`,
+            type: 'IMAGE',
+            category: 'image',
+            fileName: `${slug}-keyboard-diagram.png`,
+            fileSize: '1.4 MB',
+            mimeType: 'image/png',
+            description: `Visual reference graphic highlighting key positions, interval distances, and wrist angles.`,
+            uploadStatus: 'ready',
+            access: isFree ? 'free_preview' : 'enrolled_only',
+            uploadedAt: '2026-02-17',
+            storageKey: `courses/${course.id}/images/${slug}-diagram.png`,
+            storageProvider: 'aws_s3'
+          }
+        ];
+
+        return {
+          ...lesson,
+          video: defaultVideo,
+          resources: defaultResources
+        };
+      })
+    }))
+  }));
+}
+
+export const courses = enrichCurriculumWithResources(rawCourses);
+

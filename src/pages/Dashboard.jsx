@@ -7,11 +7,21 @@ import {
   Play,
   CheckCircle2,
   Sparkles,
-  X
+  X,
+  FileText,
+  Music,
+  Image as ImageIcon,
+  Download,
+  Pause,
+  ShieldCheck,
+  AlertCircle,
+  Volume2,
+  Lock
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useWishlist } from '../context/WishlistContext';
 import { courses } from '../data/courses';
+import { requestSecureResourceAccess } from '../services/resourceService';
 
 export const Dashboard = () => {
   const { user } = useAuth();
@@ -22,6 +32,9 @@ export const Dashboard = () => {
   const [activePlayingCourse, setActivePlayingCourse] = useState(null);
   const [activeLessonIndex, setActiveLessonIndex] = useState(0);
   const [completedLessonIds, setCompletedLessonIds] = useState(['p-101', 'p-102']);
+  const [audioPlayingResId, setAudioPlayingResId] = useState(null);
+  const [downloadNotice, setDownloadNotice] = useState('');
+  const [downloadError, setDownloadError] = useState('');
 
   const enrolledCourseIds = user?.enrolledCourses?.map((e) => e.courseId) ?? [];
   const enrolledCourseDetails = courses.filter((c) => enrolledCourseIds.includes(c.id));
@@ -36,6 +49,29 @@ export const Dashboard = () => {
       setCompletedLessonIds(completedLessonIds.filter((id) => id !== lessonId));
     } else {
       setCompletedLessonIds([...completedLessonIds, lessonId]);
+    }
+  };
+
+  const allLessons = activePlayingCourse
+    ? activePlayingCourse.curriculum.flatMap((m) => m.lessons)
+    : [];
+  const currentLesson = allLessons[activeLessonIndex] || allLessons[0] || {
+    id: 'les-default',
+    title: 'Hands Coordination & Key Synchronization',
+    duration: '15:00',
+    resources: []
+  };
+
+  const handleDownloadResource = async (res) => {
+    setDownloadNotice('');
+    setDownloadError('');
+    const access = await requestSecureResourceAccess(user, activePlayingCourse.id, res);
+    if (access.authorized) {
+      setDownloadNotice(`Authorized download initialized: ${res.fileName} (License Verified)`);
+      setTimeout(() => setDownloadNotice(''), 3500);
+    } else {
+      setDownloadError(access.error);
+      setTimeout(() => setDownloadError(''), 4000);
     }
   };
 
@@ -328,12 +364,13 @@ export const Dashboard = () => {
 
           {/* Main Player + Curriculum Grid */}
           <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 bg-white border border-slate-200 rounded-b-2xl overflow-hidden shadow-2xl">
-            {/* Player Canvas (8 Cols) */}
-            <div className="lg:col-span-8 flex flex-col bg-slate-950">
-              <div className="relative flex-1 min-h-[300px] flex items-center justify-center overflow-hidden">
+            {/* Player Canvas & Materials Column (8 Cols) */}
+            <div className="lg:col-span-8 flex flex-col bg-slate-950 overflow-y-auto max-h-[85vh]">
+              {/* Video Player Canvas */}
+              <div className="relative min-h-[320px] sm:min-h-[380px] flex items-center justify-center overflow-hidden shrink-0">
                 <img
                   src={activePlayingCourse.thumbnail}
-                  alt="Lesson view"
+                  alt={currentLesson.title}
                   className="w-full h-full object-cover opacity-75"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -342,16 +379,16 @@ export const Dashboard = () => {
                     <Play className="w-8 h-8 ml-1 fill-white" />
                   </div>
                   <h4 className="font-bold text-xl sm:text-2xl text-white drop-shadow">
-                    Lesson {activeLessonIndex + 1}: Hands Coordination & Key Synchronization
+                    {currentLesson.title}
                   </h4>
-                  <p className="text-xs text-slate-300 drop-shadow">
-                    Overhead Synthesia camera + Sheet music overlay
+                  <p className="text-xs text-slate-300 drop-shadow mt-1">
+                    4K Masterclass • Synthesia overhead + Interactive score notation
                   </p>
                 </div>
               </div>
 
-              {/* Lesson Controls */}
-              <div className="p-4 bg-slate-900 border-t border-slate-800 flex items-center justify-between text-xs">
+              {/* Lesson Controls Bar */}
+              <div className="p-4 bg-slate-900 border-t border-slate-800 flex items-center justify-between text-xs shrink-0">
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => toggleLessonComplete(`lesson-${activeLessonIndex}`)}
@@ -362,8 +399,125 @@ export const Dashboard = () => {
                   </button>
                 </div>
                 <div className="flex items-center gap-3 text-slate-300">
-                  <span className="font-mono">1080p 60fps</span>
-                  <span>Playback Speed: 1.0x</span>
+                  <span className="font-mono">4K 60fps</span>
+                  <span>Playback: 1.0x</span>
+                </div>
+              </div>
+
+              {/* Lesson Overview & Learning Materials Section */}
+              <div className="p-5 bg-white border-t border-slate-200 space-y-4">
+                {/* Download Notifications */}
+                {downloadNotice && (
+                  <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>{downloadNotice}</span>
+                  </div>
+                )}
+                {downloadError && (
+                  <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                    <span>{downloadError}</span>
+                  </div>
+                )}
+
+                {/* Lesson Description */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                  <div>
+                    <h3 className="font-bold text-base text-slate-900">{currentLesson.title}</h3>
+                    <p className="text-xs text-slate-500 mt-0.5">
+                      {currentLesson.description || 'Master the concepts in this lesson using the video lecture and accompanying materials below.'}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[10px] text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-1 rounded-md shrink-0">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>Licensed Student Access</span>
+                  </div>
+                </div>
+
+                {/* Learning Materials Grid */}
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
+                      Lesson Learning Materials ({currentLesson.resources?.length || 0})
+                    </span>
+                    <span className="text-[11px] text-slate-400">
+                      Verified encrypted CDN download
+                    </span>
+                  </div>
+
+                  {currentLesson.resources && currentLesson.resources.length > 0 ? (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {currentLesson.resources.map((res) => (
+                        <div
+                          key={res.id}
+                          className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-[#7388a5]/40 transition-all flex flex-col justify-between gap-3 shadow-2xs"
+                        >
+                          <div className="flex items-start gap-3">
+                            <div
+                              className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 border ${
+                                res.type === 'PDF'
+                                  ? 'bg-rose-50 text-rose-600 border-rose-200'
+                                  : res.type === 'AUDIO'
+                                  ? 'bg-emerald-50 text-emerald-600 border-emerald-200'
+                                  : 'bg-indigo-50 text-indigo-600 border-indigo-200'
+                              }`}
+                            >
+                              {res.type === 'PDF' && <FileText className="w-4 h-4" />}
+                              {res.type === 'AUDIO' && <Music className="w-4 h-4" />}
+                              {res.type !== 'PDF' && res.type !== 'AUDIO' && <ImageIcon className="w-4 h-4" />}
+                            </div>
+                            <div className="min-w-0">
+                              <p className="text-xs font-bold text-slate-900 truncate">{res.title}</p>
+                              <p className="text-[11px] text-slate-500 line-clamp-2 mt-0.5">{res.description}</p>
+                              <div className="flex items-center gap-1.5 text-[10px] text-slate-400 mt-1 font-mono">
+                                <span>{res.fileName}</span>
+                                <span>•</span>
+                                <span>{res.fileSize}</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Action Bar */}
+                          <div className="flex items-center justify-between pt-2 border-t border-slate-200/70">
+                            {res.type === 'AUDIO' ? (
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  setAudioPlayingResId(audioPlayingResId === res.id ? null : res.id)
+                                }
+                                className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 hover:text-emerald-800 cursor-pointer"
+                              >
+                                {audioPlayingResId === res.id ? (
+                                  <>
+                                    <Pause className="w-3.5 h-3.5" /> Pause Audio Drill
+                                  </>
+                                ) : (
+                                  <>
+                                    <Play className="w-3.5 h-3.5" /> Play Ear Drill ({res.duration || '05:30'})
+                                  </>
+                                )}
+                              </button>
+                            ) : (
+                              <span className="text-[10px] text-slate-400 font-medium">Ready for study</span>
+                            )}
+
+                            <button
+                              type="button"
+                              onClick={() => handleDownloadResource(res)}
+                              className="inline-flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 rounded-xl text-xs font-semibold shadow-2xs transition-colors cursor-pointer"
+                            >
+                              <Download className="w-3.5 h-3.5 text-[#7388a5]" />
+                              <span>Download</span>
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="p-6 text-center text-xs text-slate-400 bg-slate-50 rounded-2xl border border-slate-100">
+                      No additional worksheets or audio files attached to this lesson.
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

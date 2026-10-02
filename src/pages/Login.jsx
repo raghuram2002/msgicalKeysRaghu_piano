@@ -10,7 +10,7 @@ export const Login = () => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const { login, loginAsDemo } = useAuth();
+  const { login, loginAsDemo, loginAsAdmin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -24,6 +24,11 @@ export const Login = () => {
     setIsLoading(true);
 
     try {
+      if (email.trim().toLowerCase() === 'admin@magicalkeys.com') {
+        await loginAsAdmin();
+        navigate('/admin', { replace: true });
+        return;
+      }
       await login(email, password);
       navigate(redirectPath, { replace: true });
     } catch (err) {
@@ -38,6 +43,11 @@ export const Login = () => {
     navigate(redirectPath, { replace: true });
   };
 
+  const handleAdminDemoLogin = () => {
+    loginAsAdmin();
+    navigate('/admin', { replace: true });
+  };
+
   return (
     <div className="min-h-screen bg-white text-slate-800 pt-28 pb-20 flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
@@ -45,34 +55,56 @@ export const Login = () => {
         <div className="text-center space-y-2">
           <Link to="/" className="inline-block">
             <span className="text-2xl font-bold tracking-tight text-[#637894]">
-              Signal House
+              Magical Keys
             </span>
           </Link>
           <h1 className="font-bold text-2xl text-slate-900 tracking-tight">
             Welcome Back, Musician
           </h1>
           <p className="text-xs text-slate-600">
-            Sign in to access your masterclasses, practice drills, and digital sheets.
+            Sign in to access your masterclasses, practice drills, or admin dashboard.
           </p>
         </div>
 
-        {/* 1-Click Demo Login Banner */}
-        <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-3 shadow-2xs">
-          <div className="text-left">
-            <span className="text-[10px] uppercase font-bold text-[#637894] tracking-wider block">
-              Instant Access
-            </span>
-            <span className="text-xs text-slate-800 font-medium">
-              Demo Student (Maya Chen)
-            </span>
+        {/* 1-Click Demo Login Banners */}
+        <div className="space-y-2.5">
+          {/* Student Demo */}
+          <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-3 shadow-2xs">
+            <div className="text-left">
+              <span className="text-[10px] uppercase font-bold text-[#637894] tracking-wider block">
+                Student Access
+              </span>
+              <span className="text-xs text-slate-800 font-medium">
+                Demo Student (Alex Rivera)
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={handleDemoLogin}
+              className="px-3 py-1.5 bg-[#7388a5] hover:bg-[#5f7491] text-white font-semibold text-xs rounded-xl transition-colors cursor-pointer shrink-0 shadow-xs"
+            >
+              Student Demo
+            </button>
           </div>
-          <button
-            type="button"
-            onClick={handleDemoLogin}
-            className="px-3.5 py-1.5 bg-[#7388a5] hover:bg-[#5f7491] text-white font-semibold text-xs rounded-xl transition-colors cursor-pointer shrink-0 shadow-xs"
-          >
-            1-Click Demo Sign In
-          </button>
+
+          {/* Admin Demo */}
+          <div className="p-3 rounded-2xl bg-[#f4f7fb] border border-[#cbd8e8] flex items-center justify-between gap-3 shadow-2xs">
+            <div className="text-left">
+              <span className="text-[10px] uppercase font-bold text-[#475e7d] tracking-wider block">
+                Administrator Access
+              </span>
+              <span className="text-xs text-slate-800 font-medium">
+                Admin Panel (Raghu Admin)
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={handleAdminDemoLogin}
+              className="px-3 py-1.5 bg-[#475e7d] hover:bg-[#384b64] text-white font-semibold text-xs rounded-xl transition-colors cursor-pointer shrink-0 shadow-xs"
+            >
+              Admin Demo
+            </button>
+          </div>
         </div>
 
         {error && (
@@ -92,7 +124,7 @@ export const Login = () => {
               <input
                 type="email"
                 required
-                placeholder="student@example.com"
+                placeholder="student@example.com or admin@magicalkeys.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#7388a5] focus:bg-white transition-colors"
@@ -131,7 +163,7 @@ export const Login = () => {
               <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
             ) : (
               <>
-                <span>Sign In to Dashboard</span>
+                <span>Sign In</span>
                 <ArrowRight className="w-4 h-4" />
               </>
             )}
